@@ -1,0 +1,38 @@
+version: '2'
+services:
+  # Sets up the drupal container.
+  drupal:
+    build: ./code
+    ports:
+    - "8910:80"
+    depends_on:
+    - db
+    volumes:
+    - ./code:/var/www/html
+    - ./files:/var/www/html/sites/default/files
+    - ./themes:/var/www/html/sites/all/themes
+    - ./modules:/var/www/html/sites/all/modules
+    - ./libraries:/var/www/html/sites/all/libraries
+  # Sets up the database container.
+  db:
+    image: mysql
+    ports:
+    - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: drupal
+    volumes:
+    - ./import-sql:/docker-entrypoint-initdb.d
+
+#  # Sets up an ssh container (for use with drush)
+  sshd:
+    build: ./services/eg_sshd
+    volumes:
+    - $SSH_AUTH_SOCK:/tmp/agent.sock
+    volumes_from:
+    - drupal
+    environment:
+    - SSH_AUTH_SOCK=/tmp/agent.sock
+    ports:
+    - "2222:22"
+
