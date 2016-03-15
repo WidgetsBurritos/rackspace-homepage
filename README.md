@@ -8,7 +8,7 @@ to adjust your process accordingly.
 
 From a terminal window, navigate to a directory you wish to install this app into and run the following command:
 
-`git clone http://www.github.com/WidgetsBurritos/rackspace-homepage.git`
+`git clone https://github.com/WidgetsBurritos/rackspace-homepage.git`
 
 ## Step 2.) Install Docker Toolbox
 
@@ -74,11 +74,19 @@ If you're only looking to stop/start the containers without rebuilding (and losi
 
 ## Step 4.) Opening the Site In Your Browser
 
+The application can be accessed by going to `http://DOCKER_IP_ADDRESS:8910` in your browser, where `DOCKER_IP_ADDRESS` is the value of your Docker machine's IP address.
+
+If you don't know what the IP address is you can just run the following command to load the site in your system's default browser:
+
+`./bin/load-site.sh`
 
 
-## Using Drush on Your Docker-based Drupal App.
+---
+## Other
 
-### Setting up SSH keys & drush alias.
+### Using SSH & Drush on Your Docker-based Drupal App.
+
+#### Setting up SSH keys & drush alias.
 
 The first time you wish to use drush, you will need to generate a SSH key. You can do so with the following command:
 
@@ -92,7 +100,7 @@ After the key is generated, you need to setup your drush alias by running the fo
 
 `./bin/generate_drush_alias.sh`
 
-### Running Drush Commands
+#### Running Drush Commands
 
 At this point you should be able to run any drush command on your container by using the following command:
 
@@ -103,7 +111,7 @@ So for example, if you wish to clear all of your cache bins, you can do so with:
 `drush @rackdock.dev cc all`
 
 
-## Destroying the Evidence
+### Destroying the Evidence
 
 To remove the project and it's respective containers from your system run the following commands:
 ```

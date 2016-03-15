@@ -2,13 +2,13 @@ version: '2'
 services:
   # Sets up the drupal container.
   drupal:
-    build: ./code
+    build: ./drupal7
     ports:
     - "8910:80"
     depends_on:
     - db
     volumes:
-    - ./code:/var/www/html
+    - ./drupal7:/var/www/html
     - ./files:/var/www/html/sites/default/files
     - ./themes:/var/www/html/sites/all/themes
     - ./modules:/var/www/html/sites/all/modules
