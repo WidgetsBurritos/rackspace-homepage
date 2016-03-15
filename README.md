@@ -10,7 +10,9 @@ From a terminal window, navigate to a directory you wish to install this app int
 
 `git clone https://github.com/WidgetsBurritos/rackspace-homepage.git`
 
-## Step 2.) Install Docker Toolbox
+## Step 2.) Install VirtualBox
+
+VirtualBox is a prerequisite to getting this application to work. You can either download it through
 
 The easiest way to get Docker running on your system is by installing Docker Toolbox, [available for download here](https://www.docker.com/products/docker-toolbox).
 

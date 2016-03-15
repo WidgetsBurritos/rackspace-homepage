@@ -2,7 +2,7 @@ version: '2'
 services:
   # Sets up the drupal container.
   drupal:
-    build: ./drupal7
+    build: ./dockerfiles/drupal7
     ports:
     - "8910:80"
     depends_on:
@@ -13,6 +13,7 @@ services:
     - ./themes:/var/www/html/sites/all/themes
     - ./modules:/var/www/html/sites/all/modules
     - ./libraries:/var/www/html/sites/all/libraries
+    - ./settings.php:/var/www/html/sites/default/settings.php
   # Sets up the database container.
   db:
     image: mysql
@@ -26,7 +27,7 @@ services:
 
 #  # Sets up an ssh container (for use with drush)
   sshd:
-    build: ./services/eg_sshd
+    build: ./dockerfiles/eg_sshd
     volumes:
     - $SSH_AUTH_SOCK:/tmp/agent.sock
     volumes_from:
