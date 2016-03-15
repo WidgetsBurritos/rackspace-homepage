@@ -100,8 +100,7 @@ To revert a site to the latest SQL import file located at import-sql/import.sql,
 
 To remove the project and it's respective containers from your system run the following commands:
 ```
-cd /path/to/rackspace-homepage
-./script/destroy.sh
-cd ../
+/path/to/rackspace-homepage/script/destroy.sh
+cd ~/
 rm -Rf /path/to/rackspace-homepage
 ```
