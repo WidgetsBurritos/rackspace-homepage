@@ -4,13 +4,13 @@ A project to emulate the homepage of rackspace.com on a locally hosted environme
 This project assumes you are running on Mac OS X. If you are running on any other environment, you may need
 to adjust your process accordingly.
 
-## Step 1.) Cloning This Repository to Your System
+### Step 1.) Cloning This Repository to Your System
 
 From a terminal window, navigate to a directory you wish to install this app into and run the following command:
 
 `git clone https://github.com/WidgetsBurritos/rackspace-homepage.git`
 
-## Step 2.) Running setup.sh to Get the Application Running
+### Step 2.) Using setup.sh to Get the Application Up and Running
 
 *setup.sh* does all the hard work:
 
@@ -39,7 +39,7 @@ If drush or virtualbox are missing from your system, you will be prompted to ins
 When asked for `root@192.168.99.100's password:` enter `toor`.
 
 
-## Step 3.) Opening the site in your browser.
+### Step 3.) Opening the site in your browser.
 
 The application can be accessed by going to `http://DOCKER_IP_ADDRESS:8910` in your browser, where `DOCKER_IP_ADDRESS` is the value of your Docker machine's IP address.
 
@@ -50,13 +50,19 @@ If you don't know what the IP address you can just run the following command to 
 ---
 ## Other Items of Importance
 
-### Stopping, Starting and Restarting the Containers
+#### Locations of Drupal Modules, Themes, Libraries, Files and settings.php
 
-If you
+Our Docker application has completely isolated the modules, themes, libraries, files and settings.php from the rest of the Drupal 7 code base, from the host machine's perspective.
 
-### Running Drush Commands
+- Modules should be placed in the `./modules/` directory.
+- Themes should be placed in the `./themes/` directory.
+- Libraries should be placed in the `./libraries/` directory.
+- Files should be placed in the `./files` directory.
+- The default settings.php is located at `./settings.php`
 
-At this point you should be able to run any drush command on your container by using the following command:
+#### Running Drush Commands
+
+You can run any drush command on your container by doing the following:
 
 `drush @rackdock.dev your-drush-command-here`
 
@@ -64,15 +70,38 @@ So for example, if you wish to clear all of your cache bins, you can do so with:
 
 `drush @rackdock.dev cc all`
 
+#### Stopping, Starting and Restarting the Containers
 
-### Destroying the Evidence
+To start the app's Docker containers:
+
+`./scripts/start.sh`
+
+To stop the app's Docker containers:
+
+`./scripts/stop.sh`
+
+To restart the app's Docker containers:
+
+`./scripts/restart.sh`
+
+#### Updating the Latest SQL Dump ####
+
+To update the SQL import file located at import-sql/import.sql, run:
+
+`./scripts/update_sql_import.sh`
+
+#### Reverting a Site To The Latest SQL Dump ####
+
+To revert a site to the latest SQL import file located at import-sql/import.sql, run:
+
+`./scripts/rebuild.sh`
+
+#### Destroying the Evidence
 
 To remove the project and it's respective containers from your system run the following commands:
 ```
 cd /path/to/rackspace-homepage
-docker-compose down
-docker ps -a | grep rackspacehomepage | awk '{print $1}' | xargs docker rm
-docker ps -a | grep drush | awk '{print $1}' | xargs docker rm
+./script/destroy.sh
 cd ../
 rm -Rf /path/to/rackspace-homepage
 ```
