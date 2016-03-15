@@ -21,13 +21,13 @@ DOCKER_MACHINE=${APP_PATH}/bin/docker-machine
 
 main()
 { # Walks through each step of the installation process.
-#  checkPrerequisites
+  checkPrerequisites
   downloadDrupal7
-#  createDockerMachine
-#  setDockerEnvironment
-#  startDrupalApp
-#  generateSSHKeys
-#  generateDrushAlias
+  createDockerMachine
+  setDockerEnvironment
+  startDrupalApp
+  generateSSHKeys
+  generateDrushAlias
 }
 
 checkPrerequisites()
@@ -52,13 +52,13 @@ checkPrerequisites()
 
   DRUSH=$(command -v drush)
   if [ "${DRUSH}" == "" ]; then
-    echo "Drush is required."
+    echo "Drush is missing."
     installDrush
   fi
 
   VIRTUALBOX=$(command -v drush)
   if [ "${VIRTUALBOX}" == "" ]; then
-    echo "VirtualBox is required."
+    echo "VirtualBox is missing."
     installVirtualBox
   fi
 
@@ -164,10 +164,11 @@ generateDrushAlias()
     -e "s|##SSH_KEY##|${SSH_KEY}|g" \
     -e "s|##SSH_PORT##|${SSH_PORT}|g" \
     -e "s|##FILE_PATH##|${FILE_PATH}|g" \
-    ${APP_PATH}/drush/rackdock.aliases.drushrc.php \
+    ${APP_PATH}/drush-templates/rackdock.aliases.drushrc.php \
     > $HOME/.drush/rackdock.aliases.drushrc.php
 
   drush cc drush
 }
 
+# Run it all
 main "$@"
