@@ -1,0 +1,42 @@
+#header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 250;
+
+  /** all header lists should be treated as inlines **/
+  ul {
+    margin: 0;
+    list-style-type: none;
+    li {
+      display: inline;
+    }
+  }
+
+  /** Ceiling **/
+  #ceiling-bar {
+    background: @white;
+    text-transform: uppercase;
+    font-size: 73%;
+    font-weight: 600px;
+    line-height: 42px;
+    height: auto;
+  }
+
+  #navigation-bar {
+    background: @black;
+    height: 60px;
+    line-height: 60px;
+    a {
+      color: @white;
+      &.logo {
+        display: block;
+        width: 100%;
+        height: 60px;
+        background: url(@logo) center center no-repeat @red;
+        background-size: 90%;
+      }
+    }
+  }
+
+}

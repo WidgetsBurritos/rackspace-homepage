@@ -1,0 +1,19 @@
+/* Overriding any weird behaviors from the logged-in user toolbar. */
+body.toolbar {
+  padding-top: 30px;
+  #header {
+    top: 30px;
+  }
+}
+
+/* Toolbar is in the way on mobile, so just remove it */
+.respond-to-mobile({
+  body.toolbar {
+    padding-top: 0;
+    #header { top: 0;}
+  }
+  #toolbar {
+    display: none;
+  }
+});
+
