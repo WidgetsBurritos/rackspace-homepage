@@ -10,7 +10,6 @@ then
     exit 1
 fi
 
-
 # Determine APP path (parent to script path)
 SCRIPT_PATH=$(dirname $0)
 cd "$SCRIPT_PATH/.."
@@ -21,7 +20,7 @@ DOCKER_MACHINE=$APP_PATH/bin/docker-machine
 MACHINE_NAME="rackspace-homepage"
 
 # stop any running containers
-$APP_PATH/script/stop.sh
+$APP_PATH/scripts/stop.sh
 
 # reset our environment variables.
 eval $($APP_PATH/bin/docker-machine env $MACHINE_NAME)
