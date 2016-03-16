@@ -16,9 +16,9 @@ APP_PATH=$(pwd)
 cd $APP_PATH
 
 # Set Machine Info
-DOCKER_MACHINE=$APP_PATH/bin/docker-machine
+DOCKER_COMPOSE=$APP_PATH/bin/docker-compose
 
 # Shut down any running containers, rebuild everything, and restart containers.
-$DOCKER_MACHINE down
-$DOCKER_MACHINE build
-$DOCKER_MACHINE up -d
+$DOCKER_COMPOSE down
+$DOCKER_COMPOSE build
+$DOCKER_COMPOSE up -d
