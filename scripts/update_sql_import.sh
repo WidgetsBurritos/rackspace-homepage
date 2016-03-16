@@ -1,4 +1,5 @@
 #!/bin/sh
+#
 # Replaces the original import.sql with an updated version based on the current state of the database.
 
 # Make sure the user actually wants to replace the import.sql file.
@@ -9,10 +10,10 @@ then
     exit 1
 fi
 
-# Determine APP path
+# Determine APP path (parent to script path)
 SCRIPT_PATH=$(dirname $0)
-cd ${SCRIPT_PATH}/..
+cd "$SCRIPT_PATH/.."
 APP_PATH=$(pwd)
 
 # Export database
-drush @rackdock.dev sql-dump > ${APP_PATH}/import-sql/import.sql
+drush @rackdock.dev sql-dump > $APP_PATH/import-sql/import.sql

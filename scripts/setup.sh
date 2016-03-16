@@ -1,32 +1,12 @@
 #!/bin/sh
+#
 # Attempts to install our application and prerequisite software.
 
-# Determine APP path (parent to script path)
-SCRIPT_PATH=$(dirname $0)
-cd $SCRIPT_PATH/..
-APP_PATH=$(pwd)
-
-# Drush Configuration settings
-DB_USER='root'
-DB_PASS='mysql'
-DB_PORT=3307
-DB_NAME='drupal'
-SSH_USER=root
-SSH_PORT=2222
-SSH_KEY=$APP_PATH/certs/id_rsa
-FILE_PATH='/var/www/html/sites/default/files'
-
-# Docker Settings
-DOCKER=$APP_PATH/bin/docker
-DOCKER_URL="https://get.docker.com/builds/Darwin/x86_64/docker-latest"
-DOCKER_COMPOSE=$APP_PATH/bin/docker-compose
-DOCKER_COMPOSE_URL="https://github.com/WidgetsBurritos/docker-compose-old-mac/raw/master/bin/docker-compose-Darwin-x86_64"
-DOCKER_MACHINE=$APP_PATH/bin/docker-machine
-DOCKER_MACHINE_URL="https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-Darwin-x86_64"
-MACHINE_NAME="rackspace-homepage"
-
-main()
-{ # Walks through each step of the installation process.
+##################################################################
+# Walks through each step of the installation process.
+##################################################################
+main() {
+  initializeVariables
   checkPrerequisites
   downloadDocker
   createDockerMachine
@@ -37,9 +17,39 @@ main()
   displayInfoMessage
 }
 
-checkPrerequisites()
-{ # Makes sure system prerequisites are met.
+##################################################################
+# Initializes variables that will be used by other functions.
+##################################################################
+initializeVariables() {
+  # Determine APP path (parent to script path)
+  SCRIPT_PATH=$(dirname $0)
+  cd "$SCRIPT_PATH/.."
+  APP_PATH=$(pwd)
 
+  # Drush Configuration settings
+  DB_USER='root'
+  DB_PASS='mysql'
+  DB_PORT=3307
+  DB_NAME='drupal'
+  SSH_USER='root'
+  SSH_PORT=2222
+  SSH_KEY="$APP_PATH/certs/id_rsa"
+  FILE_PATH="/var/www/html/sites/default/files"
+
+  # Docker Settings
+  DOCKER="$APP_PATH/bin/docker"
+  DOCKER_URL="https://get.docker.com/builds/Darwin/x86_64/docker-latest"
+  DOCKER_COMPOSE="$APP_PATH/bin/docker-compose"
+  DOCKER_COMPOSE_URL="https://github.com/WidgetsBurritos/docker-compose-old-mac/raw/master/bin/docker-compose-Darwin-x86_64"
+  DOCKER_MACHINE="$APP_PATH/bin/docker-machine"
+  DOCKER_MACHINE_URL="https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-Darwin-x86_64"
+  DOCKER_MACHINE_NAME="rackspace-homepage"
+}
+
+##################################################################
+# Makes sure system prerequisites are met.
+##################################################################
+checkPrerequisites() {
   # Ensure binary folder exists.
   mkdir -p $APP_PATH/bin
 
@@ -79,8 +89,11 @@ checkPrerequisites()
   fi
 }
 
-installDrush()
-{ # Attempts to install Drush (per instructions here: https://www.drupal.org/node/1674222)
+##################################################################
+# Attempts to install Drush, per instructions here:
+# https://www.drupal.org/node/1674222
+##################################################################
+installDrush() {
   read -p "Would you like to install Drush? [y|N] " -n 1 -r
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -101,8 +114,11 @@ installDrush()
   fi
 }
 
-installVirtualBox()
-{ # Attempts to install VirtualBox (per instructions here: https://www.virtualbox.org/manual/ch02.html#idp46457698147472)
+##################################################################
+# Attempts to install VirtualBox, per instructions here:
+# https://www.virtualbox.org/manual/ch02.html#idp46457698147472
+##################################################################
+installVirtualBox() {
   read -p "Would you like to install VirtualBox 5.0.16? (NOTE: This will require sudo privileges). [y|N] " -n 1 -r
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
@@ -120,51 +136,61 @@ installVirtualBox()
   fi
 }
 
-downloadDocker()
-{ # Downloads the Docker binary files
-
-
-  # Download the Docker Binaries and set execute permissions.
+##################################################################
+# Downloads the Docker binary files and set execute permissions.
+##################################################################
+downloadDocker() {
   if [ ! -f "$APP_PATH/bin/docker" ]; then
     curl -L $DOCKER_BINARY > $APP_PATH/bin/docker
     chmod +x $APP_PATH/bin/docker
   fi
-  if [ ! -f "$APP_PATH/bin/docker-compose" ]; then
-    curl -L $DOCKER_COMPOSE_BINARY > $APP_PATH/bin/docker-compose
-    chmod +x $APP_PATH/bin/docker-compose
+  if [ ! -f $DOCKER_COMPOSE ]; then
+    curl -L $DOCKER_COMPOSE_BINARY > $DOCKER_COMPOSE
+    chmod +x $DOCKER_COMPOSE
   fi
-  if [ ! -f "$APP_PATH/bin/docker-machine" ]; then
-    curl -L $DOCKER_MACHINE_BINARY > $APP_PATH/bin/docker-machine
-    chmod +x $APP_PATH/bin/docker-machine
+  if [ ! -f $DOCKER_MACHINE ]; then
+    curl -L $DOCKER_MACHINE_BINARY > $DOCKER_MACHINE
+    chmod +x $DOCKER_MACHINE
   fi
 }
 
-createDockerMachine()
-{ # Creates a docker machine for our application
-  $DOCKER_MACHINE create --driver virtualbox $MACHINE_NAME
+##################################################################
+# Creates a docker machine for our application
+##################################################################
+createDockerMachine() {
+  $DOCKER_MACHINE create --driver virtualbox $DOCKER_MACHINE_NAME
 }
 
-setDockerEnvironment()
-{ # Allows the remainder of the script to execute with the appropriate docker environment variables.
-  eval $($DOCKER_MACHINE env $MACHINE_NAME)
+##################################################################
+# Allows the remainder of the script to execute with the appropriate docker environment variables.
+##################################################################
+setDockerEnvironment() {
+  eval $($DOCKER_MACHINE env $DOCKER_MACHINE_NAME)
 }
 
-startDrupalApp()
-{ # Attempts to start our app
+##################################################################
+# Attempts to start our app
+##################################################################
+startDrupalApp() {
   cd $APP_PATH
-  $APP_PATH/bin/docker-compose up -d
+  $DOCKER_COMPOSE up -d
 }
 
-generateSSHKeys()
-{ # Generates SSH key and copies it onto the SSHD container, so we can use Drush.
+##################################################################
+# Generates SSH key and copies it onto the SSHD container, so we can use Drush.
+##################################################################
+generateSSHKeys() {
   mkdir -p $APP_PATH/certs
   ssh-keygen -f $APP_PATH/certs/id_rsa -t rsa -N ''
-  cat $APP_PATH/certs/id_rsa.pub | ssh -p 2222 root@$($DOCKER_MACHINE ip $MACHINE_NAME) "mkdir -p ~/.ssh && cat > ~/.ssh/authorized_keys"
+  cat $APP_PATH/certs/id_rsa.pub | ssh -p 2222 root@$($DOCKER_MACHINE ip $DOCKER_MACHINE_NAME) "mkdir -p ~/.ssh && cat > ~/.ssh/authorized_keys"
 }
 
-generateDrushAlias()
-{ # Creates a drush alias file so we can access our containers.
-  DOCKER_HOSTNAME=$($DOCKER_MACHINE ip $MACHINE_NAME)
+##################################################################
+# Creates a drush alias file so we can access our containers.
+##################################################################
+generateDrushAlias() {
+  mkdir -p $HOME/.drush
+  DOCKER_HOSTNAME=$($DOCKER_MACHINE ip $DOCKER_MACHINE_NAME)
   DB_HOST=$DOCKER_HOSTNAME
 
   sed \
@@ -184,8 +210,10 @@ generateDrushAlias()
   drush cc drush
 }
 
-displayInfoMessage()
-{ # Shows basic info on how to launch the app.
+##################################################################
+# Shows basic info on how to launch the app.
+##################################################################
+displayInfoMessage() {
   echo
   echo "********************************************"
   echo "Rackspace Homepage app installation complete"
@@ -193,7 +221,6 @@ displayInfoMessage()
   echo "********************************************"
   echo
 }
-
 
 # Run it all
 main "$@"
