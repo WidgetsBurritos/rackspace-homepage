@@ -16,7 +16,10 @@ APP_PATH=$(pwd)
 cd $APP_PATH
 
 # Set Machine Info
+DOCKER_MACHINE=$APP_PATH/bin/docker-machine
 DOCKER_COMPOSE=$APP_PATH/bin/docker-compose
+MACHINE_NAME=rackspace-homepage
+eval $(DOCKER_MACHINE env $MACHINE_NAME)
 
 # Shut down any running containers, rebuild everything, and restart containers.
 $DOCKER_COMPOSE down
