@@ -18,10 +18,12 @@ regions[basement]       = 'Basement'
 ;; Stylesheets
 ;;;;;;;;;;;;;;;;;;;;;
 
+stylesheets[all][] = bootstrap/css/bootstrap.min.css
 stylesheets[all][] = css/style.css
 
 ;;;;;;;;;;;;;;;;;;;;;
 ;; Scripts
 ;;;;;;;;;;;;;;;;;;;;;
 
+scripts[] = bootstrap/js/bootstrap.min.js
 scripts[] = js/global.js
