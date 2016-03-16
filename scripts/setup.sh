@@ -7,6 +7,7 @@
 ##################################################################
 main() {
   initializeVariables
+  initializePaths
   checkPrerequisites
   downloadDocker
   createDockerMachine
@@ -25,6 +26,7 @@ initializeVariables() {
   SCRIPT_PATH=$(dirname $0)
   cd "$SCRIPT_PATH/.."
   APP_PATH=$(pwd)
+  cd $APP_PATH
 
   # Drush Configuration settings
   DB_USER='root'
@@ -44,46 +46,55 @@ initializeVariables() {
   DOCKER_MACHINE="$APP_PATH/bin/docker-machine"
   DOCKER_MACHINE_URL="https://github.com/docker/machine/releases/download/v0.6.0/docker-machine-Darwin-x86_64"
   DOCKER_MACHINE_NAME="rackspace-homepage"
+
+  # VirtualBox settings
+  VIRTUAL_BOX_URL="http://download.virtualbox.org/virtualbox/5.0.16/VirtualBox-5.0.16-105871-OSX.dmg"
+}
+
+##################################################################
+# Makes sure necessary system paths exists.
+##################################################################
+initializePaths() {
+  mkdir -p $APP_PATH/bin
+  mkdir -p $APP_PATH/certs
+  mkdir -p $HOME/.drush
 }
 
 ##################################################################
 # Makes sure system prerequisites are met.
 ##################################################################
 checkPrerequisites() {
-  # Ensure binary folder exists.
-  mkdir -p $APP_PATH/bin
-
   # Ensure git is installed
   GIT=$(command -v git)
-  if [ "$GIT" == "" ]; then
+  if [[ $GIT == "" ]]; then
     echo "Git is required. Aborting."
     exit 1
   fi
 
   # Ensure curl is installed (needed to install composer, virtualbox and docker)
   CURL=$(command -v curl)
-  if [ "$CURL" == "" ]; then
+  if [[ $CURL == "" ]]; then
     echo "Curl is required. Aborting."
     exit 1
   fi
 
   # Ensure php is installed (needed to install composer)
   PHP=$(command -v php)
-  if [ "$PHP" == "" ]; then
+  if [[ $PHP == "" ]]; then
     echo "PHP is required. Aborting."
     exit 1
   fi
 
   # Check if Drush is installed. If not, attempt to install it.
   DRUSH=$(command -v drush)
-  if [ "$DRUSH" == "" ]; then
+  if [[ $DRUSH == "" ]]; then
     echo "Drush is missing."
     installDrush
   fi
 
   # Check if VirtualBox is installed. If not, attempt to install it.
   VIRTUALBOX=$(command -v drush)
-  if [ "$VIRTUALBOX" == "" ]; then
+  if [[ $VIRTUALBOX == "" ]]; then
     echo "VirtualBox is missing."
     installVirtualBox
   fi
@@ -94,19 +105,25 @@ checkPrerequisites() {
 # https://www.drupal.org/node/1674222
 ##################################################################
 installDrush() {
-  read -p "Would you like to install Drush? [y|N] " -n 1 -r
+  read -p "Would you like to install Drush? (NOTE: This will require sudo privileges) [y|N] " -n 1 -r
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
-    SRC_PATH=/usr/local/src/
-    mkdir -p $SRC_PATH
-    cd $SRC_PATH
-    git clone https://github.com/drush-ops/drush.git
+    # Download composer
     curl -sS https://getcomposer.org/installer | php
     mv composer.phar $APP_PATH/bin/composer
     chmod +x $APP_PATH/bin/composer
+
+    # Ensure our drush code respository exists.
+    SRC_PATH=/usr/local/src/rh-drush
+    sudo mkdir -p $SRC_PATH
+    sudo chown -R $(whoami) $SRC_PATH
+    cd $SRC_PATH
+    git clone https://github.com/drush-ops/drush.git
     cd $SRC_PATH/drush
     $APP_PATH/bin/composer install
-    ln -s $SRC_PATH/drush/drush /usr/local/bin/drush
+
+    # Create a symbolic link
+    sudo ln -s $SRC_PATH/drush/drush /usr/local/bin/drush
     cd $APP_PATH
   else
     echo "Exiting..."
@@ -122,13 +139,18 @@ installVirtualBox() {
   read -p "Would you like to install VirtualBox 5.0.16? (NOTE: This will require sudo privileges). [y|N] " -n 1 -r
   echo
   if [[ $REPLY =~ ^[Yy]$ ]]; then
+    # Create a temporary path for installing virtualbox
     TMP_PATH=$APP_PATH/.setup-virtualbox
     mkdir -p $TMP_PATH
+
+    # Download and attach volume
     VOLUME_PATH=/Volumes/VirtualBox
-    curl http://download.virtualbox.org/virtualbox/5.0.16/VirtualBox-5.0.16-105871-OSX.dmg > $TMP_PATH/VirtualBox.dmg
+    curl -L $VIRTUAL_BOX_URL > $TMP_PATH/VirtualBox.dmg
     hdiutil attach $TMP_PATH/VirtualBox.dmg
     sudo installer -pkg $VOLUME_PATH/VirtualBox.pkg -target /
     hdiutil unmount $VOLUME_PATH
+
+    # Remove VirtualBox.dmg and tmp path.
     rm $TMP_PATH/VirtualBox.dmg
     rm -Rf $TMP_PATH
   else
@@ -140,15 +162,15 @@ installVirtualBox() {
 # Downloads the Docker binary files and set execute permissions.
 ##################################################################
 downloadDocker() {
-  if [ ! -f "$APP_PATH/bin/docker" ]; then
-    curl -L $DOCKER_BINARY > $APP_PATH/bin/docker
+  if [[ ! -f $DOCKER ]]; then
+    curl -L $DOCKER_BINARY > $DOCKER
     chmod +x $APP_PATH/bin/docker
   fi
-  if [ ! -f $DOCKER_COMPOSE ]; then
+  if [[ ! -f $DOCKER_COMPOSE ]]; then
     curl -L $DOCKER_COMPOSE_BINARY > $DOCKER_COMPOSE
     chmod +x $DOCKER_COMPOSE
   fi
-  if [ ! -f $DOCKER_MACHINE ]; then
+  if [[ ! -f $DOCKER_MACHINE ]]; then
     curl -L $DOCKER_MACHINE_BINARY > $DOCKER_MACHINE
     chmod +x $DOCKER_MACHINE
   fi
@@ -180,7 +202,6 @@ startDrupalApp() {
 # Generates SSH key and copies it onto the SSHD container, so we can use Drush.
 ##################################################################
 generateSSHKeys() {
-  mkdir -p $APP_PATH/certs
   ssh-keygen -f $APP_PATH/certs/id_rsa -t rsa -N ''
   cat $APP_PATH/certs/id_rsa.pub | ssh -p 2222 root@$($DOCKER_MACHINE ip $DOCKER_MACHINE_NAME) "mkdir -p ~/.ssh && cat > ~/.ssh/authorized_keys"
 }
@@ -189,10 +210,10 @@ generateSSHKeys() {
 # Creates a drush alias file so we can access our containers.
 ##################################################################
 generateDrushAlias() {
-  mkdir -p $HOME/.drush
   DOCKER_HOSTNAME=$($DOCKER_MACHINE ip $DOCKER_MACHINE_NAME)
   DB_HOST=$DOCKER_HOSTNAME
 
+  # Replace variables and store into drush alias folder.
   sed \
     -e "s|##DOCKER_HOSTNAME##|$DOCKER_HOSTNAME|g" \
     -e "s|##DB_HOST##|$DB_HOST|g" \
