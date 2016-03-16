@@ -12,7 +12,7 @@ cd $APP_PATH
 DOCKER_MACHINE=$APP_PATH/bin/docker-machine
 DOCKER_COMPOSE=$APP_PATH/bin/docker-compose
 MACHINE_NAME=rackspace-homepage
-eval $(DOCKER_MACHINE env $MACHINE_NAME)
+eval $($DOCKER_MACHINE env $MACHINE_NAME)
 
 # Activate our containers
 $APP_PATH/bin/docker-compose up -d
