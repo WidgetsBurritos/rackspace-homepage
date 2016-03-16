@@ -40,7 +40,5 @@ Thumbs.db
 # Project-Specific #
 ####################
 certs/
-certs/id_rsa
-certs/id_rsa.pub
-drupal7/
 tmp/
+bin/
