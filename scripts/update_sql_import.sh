@@ -4,9 +4,8 @@
 
 # Make sure the user actually wants to replace the import.sql file.
 read -p "This will force all rebuilds to revert to the current state. Are you sure?  [y|N] " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit 1
 fi
 

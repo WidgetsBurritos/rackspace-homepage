@@ -4,9 +4,8 @@
 
 # Make sure the user actually wants to revert the site to the previously exported stated.
 read -p "This will revert the current drupal site to the previously exported state. Are you sure? [y|N] " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit 1
 fi
 

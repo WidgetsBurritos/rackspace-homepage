@@ -4,9 +4,8 @@
 
 # Make sure the user actually wants to revert the site to the previously exported stated.
 read -p "This will destroy all containers and the machine for the rackspace-homepage application. You will lose any unsaved changes, and have to rerun scripts/setup.sh to start over. Are you sure? [y|N] " -n 1 -r
-echo    # (optional) move to a new line
-if [[ ! $REPLY =~ ^[Yy]$ ]]
-then
+echo
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
     exit 1
 fi
 
@@ -14,16 +13,17 @@ fi
 SCRIPT_PATH=$(dirname $0)
 cd "$SCRIPT_PATH/.."
 APP_PATH=$(pwd)
+cd $APP_PATH
 
 # Set Machine Info
 DOCKER_MACHINE=$APP_PATH/bin/docker-machine
 MACHINE_NAME="rackspace-homepage"
 
-# stop any running containers
-$APP_PATH/scripts/stop.sh
-
 # reset our environment variables.
 eval $($APP_PATH/bin/docker-machine env $MACHINE_NAME)
+
+# stop any running containers
+$APP_PATH/scripts/stop.sh
 
 # destroy all the old containers
 $APP_PATH/bin/docker ps -a | grep rackspacehomepage | awk '{print $1}' | xargs $APP_PATH/bin/docker rm
