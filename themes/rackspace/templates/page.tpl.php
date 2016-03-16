@@ -74,25 +74,48 @@
  */
 ?>
 
-<!-- BEGIN CEILING -->
-<?php if (!empty($page['ceiling'])): ?>
-  <div class="region-ceiling">
-    <div class="container">
-      <?php print render($page['ceiling']); ?>
+<div id="header">
+  <div id="ceiling-bar">
+    <div class="container clearfix">
+      <div class="col-sm-6 text-left">
+        <ul>
+          <li><?php echo l(t('Support: '), 'https://www.rackspace.com/support') . l(t('1-800-961-4454'), 'tel:+18009614454'); ?></li>
+          <li><?php echo l(t('Sales: '), 'https://www.rackspace.com/sales') . l(t('1-844-858-8901'), 'tel:+18448588901'); ?></li>
+          <li><?php echo l(t('Email Us'), 'https://www.rackspace.com/information/contactus#form'); ?></li>
+          <li><?php echo l(t('Sales Chat'), 'https://www.rackspace.com/#chat'); ?></li>
+        </ul>
+      </div>
+      <div class="col-sm-6 text-right">
+        <ul>
+          <li><a href="">DEVELOPERS</a></li>
+          <li><a href="">PARTNERS</a></li>
+          <li>SIGN UP</li>
+          <li>LOG IN</li>
+        </ul>
+      </div>
     </div>
   </div>
-<?php endif; ?>
-<!-- END CEILING -->
 
-<!-- BEGIN NAVIGATION -->
-<?php if (!empty($page['navigation'])): ?>
-  <div class="region-navigation">
-    <div class="container">
-      <?php print render($page['navigation']); ?>
+  <div id="navigation-bar" class="hidden-xs">
+    <div class="container clearfix">
+      <div class="col-sm-2">
+        <a class="logo" href="<?php echo $front_page; ?>"></a>
+      </div>
+      <div class="col-sm-7">
+        <ul>
+          <li><a href="#">xyz</a></li>
+          <li><a href="#">xyz</a></li>
+          <li><a href="#">xyz</a></li>
+          <li><a href="#">xyz</a></li>
+        </ul>
+      </div>
+      <div class="col-sm-2">
+        MAG
+      </div>
     </div>
   </div>
-<?php endif; ?>
-<!-- END NAVIGATION -->
+</div>
+
 
 <!-- BEGIN CONTENT -->
 <?php if (!empty($page['content'])): ?>
