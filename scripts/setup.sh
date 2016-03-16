@@ -163,15 +163,15 @@ installVirtualBox() {
 ##################################################################
 downloadDocker() {
   if [[ ! -f $DOCKER ]]; then
-    curl -L $DOCKER_BINARY > $DOCKER
-    chmod +x $APP_PATH/bin/docker
+    curl -L $DOCKER_URL > $DOCKER
+    chmod +x $DOCKER
   fi
   if [[ ! -f $DOCKER_COMPOSE ]]; then
-    curl -L $DOCKER_COMPOSE_BINARY > $DOCKER_COMPOSE
+    curl -L $DOCKER_COMPOSE_URL > $DOCKER_COMPOSE
     chmod +x $DOCKER_COMPOSE
   fi
   if [[ ! -f $DOCKER_MACHINE ]]; then
-    curl -L $DOCKER_MACHINE_BINARY > $DOCKER_MACHINE
+    curl -L $DOCKER_MACHINE_URL > $DOCKER_MACHINE
     chmod +x $DOCKER_MACHINE
   fi
 }
