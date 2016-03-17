@@ -58,15 +58,13 @@
  * - $page['help']: Dynamic help text, mostly for admin pages.
  * - $page['highlighted']: Items for the highlighted content region.
  * - $page['content']: The main content of the current page.
- * - $page['ceiling']: Items for the ceiling region.
- * - $page['navigation']: Items for the navigation region.
+ * - $page['sidebar_first']: Items for the first sidebar.
+ * - $page['sidebar_second']: Items for the second sidebar.
+ * - $page['header']: Items for the header region.
  * - $page['footer']: Items for the footer region.
- * - $page['basement']: Items for the basement region.
  *
- * @see bootstrap_preprocess_page()
  * @see template_preprocess()
  * @see template_preprocess_page()
- * @see bootstrap_process_page()
  * @see template_process()
  * @see html.tpl.php
  *
@@ -74,8 +72,9 @@
  */
 ?>
 
-<div id="header">
-  <div id="ceiling-bar">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="row1 hidden-xs">
     <div class="container clearfix">
       <div class="col-sm-6 text-left">
         <ul>
@@ -95,31 +94,37 @@
       </div>
     </div>
   </div>
+  <div class="row2">
+    <div class="container">
+      <!-- Company Logo -->
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <img alt="Rackspace - the #1 managed cloud company"
+               src="https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/navigation/rackspace-logo-tagline-simplified.svg"/>
+        </a>
+      </div>
+      <!-- End Company Logo -->
 
-  <div id="navigation-bar" class="hidden-xs">
-    <div class="container clearfix">
-      <div class="col-sm-2">
-        <a class="logo" href="<?php echo $front_page; ?>"></a>
+      <!-- Collapses on mobile -->
+      <div class="collapse navbar-collapse" id="main-menu-nav">
+        <?php print $primary_navigation; ?>
+
+        <form action="https://www.rackspace.com/searchresults" class="navbar-form navbar-right" role="search">
+          <div class="form-group">
+            <input type="text" name="query" class="form-control" placeholder="Search">
+          </div>
+          <span id="search-button" class="search-button"></span>
+        </form>
       </div>
-      <div class="col-sm-7">
-        <ul>
-          <li><a href="#">xyz</a></li>
-          <li><a href="#">xyz</a></li>
-          <li><a href="#">xyz</a></li>
-          <li><a href="#">xyz</a></li>
-        </ul>
-      </div>
-      <div class="col-sm-2">
-        MAG
-      </div>
+      <!-- End mobile collapse -->
     </div>
   </div>
-</div>
+</nav>
 
 
 <!-- BEGIN CONTENT -->
 <?php if (!empty($page['content'])): ?>
-  <div class="region-content">
+  <div id="region-content">
     <div class="container">
       <?php if (!empty($page['highlighted'])): ?>
         <div class="region-highlighted">
