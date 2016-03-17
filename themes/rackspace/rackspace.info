@@ -26,4 +26,5 @@ stylesheets[all][] = css/style.css
 ;;;;;;;;;;;;;;;;;;;;;
 
 scripts[] = bootstrap/js/bootstrap.min.js
+scripts[] = bootstrap/js/plugins/collapse.js
 scripts[] = js/global.js
