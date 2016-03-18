@@ -86,7 +86,7 @@ nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav {
   background: #333333;
   position: absolute;
   left: 0;
-  top: 60;
+  top: 60px;
 }
 nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav li {
   float: none;
@@ -114,9 +114,10 @@ nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav {
   background: #555555;
   width: auto;
   display: none;
+  opacity: 0;
   position: absolute;
   left: 100%;
-  top: 0;
+  top: 0px;
 }
 nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li > span.nolink:hover,
 nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li > a:hover {
