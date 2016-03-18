@@ -109,9 +109,11 @@
       <div class="collapse navbar-collapse" id="main-menu-nav">
         <?php print $primary_navigation; ?>
 
-        <form action="https://www.rackspace.com/searchresults" class="navbar-form navbar-right" role="search">
+        <form action="https://www.rackspace.com/searchresults"
+              class="navbar-form navbar-right" role="search">
           <div class="form-group">
-            <input type="text" name="query" class="form-control" placeholder="Search">
+            <input type="text" name="query" class="form-control"
+                   placeholder="Search">
           </div>
           <span id="search-button" class="search-button"></span>
         </form>
@@ -127,15 +129,17 @@
   <div id="region-content">
     <div class="container">
       <?php if (!empty($page['highlighted'])): ?>
+        <!-- .region-highlighted -->
         <div class="region-highlighted">
           <?php print render($page['highlighted']); ?>
         </div>
+        <!-- /.region-highlighted -->
       <?php endif; ?>
 
-
-
-      <?php /* if (!empty($breadcrumb)): print $breadcrumb; endif; */ ?>
+      <!-- Anchor here-->
       <a id="main-content"></a>
+
+      <!-- .drupal-help -->
       <?php print $messages; ?>
       <?php if (!empty($tabs)): ?>
         <?php print render($tabs); ?>
@@ -148,30 +152,38 @@
       <?php if (!empty($action_links)): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
+      <!-- /.drupal-help -->
 
-
-      <?php print render($page['content']); ?>
+      <!-- .region-content -->
+      <div class="region-content">
+        <?php print render($page['content']); ?>
+      </div>
+      <!-- /.region-content -->
     </div>
   </div>
 <?php endif; ?>
-<!-- END CONTENT -->
 
-<!-- BEGIN FOOTER -->
+
+
 <?php if (!empty($page['footer'])): ?>
+  <!-- .region-footer -->
   <div class="region-footer">
     <div class="container">
       <?php print render($page['footer']); ?>
     </div>
   </div>
+  <!-- /.region-footer -->
 <?php endif; ?>
 <!-- END FOOTER -->
 
-<!-- BEGIN BASEMENT -->
+
 <?php if (!empty($page['basement'])): ?>
+  <!-- .region-basement -->
   <div class="region-basement">
     <div class="container">
       <?php print render($page['basement']); ?>
     </div>
   </div>
+  <!-- /.region-basement -->
 <?php endif; ?>
-<!-- END BASEMENT -->
+

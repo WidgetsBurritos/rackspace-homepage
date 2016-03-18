@@ -30,7 +30,6 @@ function rackspace_preprocess_page(&$variables) {
   $menu_tree = menu_tree_all_data('main-menu');
   $tree_output_prepare = menu_tree_output($menu_tree);
   _rackspace_add_depth_to_menu_tree($tree_output_prepare);
-dpm($tree_output_prepare);
   $variables['primary_navigation'] = drupal_render($tree_output_prepare);
 }
 

@@ -73,8 +73,7 @@ nav.navbar-default .row2 #main-menu-nav li.depth-1 > a {
   display: inline-block;
   cursor: pointer;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > span.nolink:hover,
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > a:hover {
+nav.navbar-default .row2 #main-menu-nav li.depth-1:hover {
   background: #2a2a2a;
 }
 nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav {
@@ -106,8 +105,7 @@ nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav > li > a {
   display: block;
   padding: 4px 20px 4px 15px;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav > li > span.nolink:hover,
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav > li > a:hover {
+nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav > li:hover {
   background: #555555;
 }
 nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav {
@@ -119,8 +117,11 @@ nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav {
   left: 100%;
   top: 0px;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li > span.nolink:hover,
-nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li > a:hover {
+nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li > span.nolink,
+nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li > a {
+  padding: 4px 20px 4px 15px;
+}
+nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li:hover {
   background: #777777;
 }
 nav.navbar-default .row2 #main-menu-nav li.leaf span.nolink {
@@ -174,7 +175,7 @@ nav.navbar-default .row2 .navbar-form .search-button.focus:after {
 body.toolbar {
   padding-top: 30px;
 }
-body.toolbar #header {
+body.toolbar .navbar-fixed-top {
   top: 30px;
 }
 /* Toolbar is in the way on mobile, so just remove it */
