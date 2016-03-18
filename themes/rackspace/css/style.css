@@ -100,8 +100,8 @@ a:hover {
 nav.navbar-default {
   border-bottom: none;
   -webkit-font-smoothing: subpixel-antialiased;
-  /** Row 1 of the header menu. **/
-  /** Row 2 of the header menu. **/
+  /** The Ceiling **/
+  /** Main menu  **/
 }
 nav.navbar-default .ceiling {
   background: #ffffff;
@@ -192,37 +192,37 @@ nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded.e
 nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded:hover ul.menu {
   display: block;
 }
-nav.navbar-default .row2 {
+nav.navbar-default .main-menu {
   background: #1a1a1a;
 }
-nav.navbar-default .row2 .navbar-brand {
+nav.navbar-default .main-menu .navbar-brand {
   background: #c40022;
   height: 60px;
   padding: 9px;
 }
-nav.navbar-default .row2 .navbar-brand img {
+nav.navbar-default .main-menu .navbar-brand img {
   height: 42px;
   width: auto;
 }
-nav.navbar-default .row2 #main-menu-nav > ul {
+nav.navbar-default .main-menu #main-menu-nav > ul {
   text-transform: uppercase;
 }
-nav.navbar-default .row2 #main-menu-nav li {
+nav.navbar-default .main-menu #main-menu-nav li {
   position: relative;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 {
   margin: 0;
   padding: 0;
   text-align: left;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 span.nolink,
-nav.navbar-default .row2 #main-menu-nav li.depth-1 a {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 span.nolink,
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 a {
   white-space: nowrap;
   color: #eeeeee;
   padding: 0px 15px 0px 15px;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > span.nolink,
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > a {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 > span.nolink,
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 > a {
   color: #ffffff;
   font-size: 13px;
   line-height: 60px;
@@ -230,10 +230,10 @@ nav.navbar-default .row2 #main-menu-nav li.depth-1 > a {
   display: inline-block;
   cursor: pointer;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1:hover {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1:hover {
   background: #2a2a2a;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 > ul.nav {
   display: none;
   font-size: 1.2rem;
   text-transform: none;
@@ -244,11 +244,11 @@ nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav {
   left: 0;
   top: 60px;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav li {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 > ul.nav li {
   float: none;
   padding: 0;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav li.expanded:after {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 > ul.nav li.expanded:after {
   content: '\f0da';
   color: #959595;
   font-family: FontAwesome;
@@ -257,15 +257,15 @@ nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav li.expanded:after {
   right: 10px;
   top: 5px;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav > li > span.nolink,
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav > li > a {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 > ul.nav > li > span.nolink,
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 > ul.nav > li > a {
   display: block;
   padding: 4px 20px 4px 15px;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-1 > ul.nav > li:hover {
+nav.navbar-default .main-menu #main-menu-nav li.depth-1 > ul.nav > li:hover {
   background: #555555;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav {
+nav.navbar-default .main-menu #main-menu-nav li.depth-2 > ul.nav {
   background: #555555;
   width: auto;
   display: none;
@@ -274,45 +274,45 @@ nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav {
   left: 100%;
   top: 0px;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li > span.nolink,
-nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li > a {
+nav.navbar-default .main-menu #main-menu-nav li.depth-2 > ul.nav > li > span.nolink,
+nav.navbar-default .main-menu #main-menu-nav li.depth-2 > ul.nav > li > a {
   padding: 4px 20px 4px 15px;
 }
-nav.navbar-default .row2 #main-menu-nav li.depth-2 > ul.nav > li:hover {
+nav.navbar-default .main-menu #main-menu-nav li.depth-2 > ul.nav > li:hover {
   background: #777777;
 }
-nav.navbar-default .row2 #main-menu-nav li.leaf span.nolink {
+nav.navbar-default .main-menu #main-menu-nav li.leaf span.nolink {
   color: #cccccc;
   text-transform: uppercase;
 }
-nav.navbar-default .row2 .navbar-form {
+nav.navbar-default .main-menu .navbar-form {
   margin-top: 13px;
   position: relative;
 }
-nav.navbar-default .row2 .navbar-form .form-group {
+nav.navbar-default .main-menu .navbar-form .form-group {
   display: none;
   position: absolute;
   right: 0;
   width: 170px;
   height: 35px;
 }
-nav.navbar-default .row2 .navbar-form .form-group input.form-control {
+nav.navbar-default .main-menu .navbar-form .form-group input.form-control {
   z-index: 5;
   position: absolute;
   right: 0px;
   width: 170px;
   padding-right: 35px;
 }
-nav.navbar-default .row2 .navbar-form .search-button {
+nav.navbar-default .main-menu .navbar-form .search-button {
   z-index: 10;
   width: 13px;
   position: absolute;
   right: 5px;
 }
-nav.navbar-default .row2 .navbar-form .search-button button {
+nav.navbar-default .main-menu .navbar-form .search-button button {
   background: none;
 }
-nav.navbar-default .row2 .navbar-form .search-button:after {
+nav.navbar-default .main-menu .navbar-form .search-button:after {
   font-family: FontAwesome;
   font-size: 14px;
   content: '\f002';
@@ -321,7 +321,7 @@ nav.navbar-default .row2 .navbar-form .search-button:after {
   color: #ffffff;
   z-index: 99;
 }
-nav.navbar-default .row2 .navbar-form .search-button.focus:after {
+nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   color: #666666;
 }
 /** Hero Region **/

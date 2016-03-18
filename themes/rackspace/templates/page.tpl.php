@@ -88,7 +88,7 @@
     </div>
   </div>
   <!-- ./ceiling -->
-  <div class="row2">
+  <div class="main-menu">
     <div class="container">
       <!-- Company Logo -->
       <div class="navbar-header">
