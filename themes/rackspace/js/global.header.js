@@ -65,7 +65,13 @@
   var clickMenuItem = function (event) {
     // Find the parent <li class="expanded"> of the clicked item.
     var $li = $(this).closest('li.expanded');
-    var uniqueId = $li.uniqueId().prop('id');
+
+    // Fetch/generate unique id for this element.
+    var uniqueId = $(this).data('unique-id');
+    if (typeof(uniqueId) === "undefined") {
+      uniqueId = 'unique-'+Math.random();
+      $(this).data('unique-id', uniqueId);
+    }
 
     // Hide any neighboring <li>'s submenus.
     $li.siblings('li.expanded').find('ul.nav')

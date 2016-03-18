@@ -1,16 +1,95 @@
 /*
 Stylesheet generated via less preprocessor. Please consult less directory for source.
 */
+/*
+Montserrat font definitions, grabbed directly from the Rackspace CSS file, as the Google Web Font version was rendering oddly.
+*/
+@font-face {
+  font-family: Montserrat;
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Hairline.eot);
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Hairline.eot?#iefix) format("embedded-opentype"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Hairline.woff2) format("woff2"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Hairline.woff) format("woff"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Hairline.ttf) format("truetype"), url("https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Hairline.svg#Montserrat Hairline") format("svg");
+  font-weight: 100;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-UltraLight.eot);
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-UltraLight.eot?#iefix) format("embedded-opentype"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-UltraLight.woff2) format("woff2"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-UltraLight.woff) format("woff"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-UltraLight.ttf) format("truetype"), url("https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-UltraLight.svg#Montserrat UltraLight") format("svg");
+  font-weight: 200;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Light.eot);
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Light.eot?#iefix) format("embedded-opentype"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Light.woff2) format("woff2"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Light.woff) format("woff"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Light.ttf) format("truetype"), url("https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Light.svg#Montserrat Light") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Regular.eot);
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Regular.eot?#iefix) format("embedded-opentype"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Regular.woff2) format("woff2"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Regular.woff) format("woff"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Regular.ttf) format("truetype"), url("https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Regular.svg#Montserrat Regular") format("svg");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-SemiBold.eot);
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-SemiBold.eot?#iefix) format("embedded-opentype"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-SemiBold.woff2) format("woff2"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-SemiBold.woff) format("woff"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-SemiBold.ttf) format("truetype"), url("https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-SemiBold.svg#Montserrat SemiBold") format("svg");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Bold.eot);
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Bold.eot?#iefix) format("embedded-opentype"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Bold.woff2) format("woff2"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Bold.woff) format("woff"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Bold.ttf) format("truetype"), url("https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Bold.svg#Montserrat Bold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-ExtraBold.eot);
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-ExtraBold.eot?#iefix) format("embedded-opentype"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-ExtraBold.woff2) format("woff2"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-ExtraBold.woff) format("woff"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-ExtraBold.ttf) format("truetype"), url("https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-ExtraBold.svg#Montserrat ExtraBold") format("svg");
+  font-weight: 800;
+  font-style: normal;
+}
+@font-face {
+  font-family: Montserrat;
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Black.eot);
+  src: url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Black.eot?#iefix) format("embedded-opentype"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Black.woff2) format("woff2"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Black.woff) format("woff"), url(https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Black.ttf) format("truetype"), url("https://043a96a8a2caa9c57463-9701ce6e6cbd7003c5a8a25a5a69546c.ssl.cf5.rackcdn.com/v1.1/fonts/Montserrat-Black.svg#Montserrat Black") format("svg");
+  font-weight: 900;
+  font-style: normal;
+}
+/** Overrides default Bootstrap settings */
+.btn {
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-size: 0.8em;
+  text-align: center;
+  letter-spacing: 0px;
+  line-height: 16px;
+  padding: 8px 20px;
+  font-weight: 600;
+}
+.btn.btn-primary {
+  background: #5aaa28;
+  border: none;
+}
+.btn.btn-default {
+  background: #666666;
+  border: none;
+  color: #ffffff;
+}
 body {
-  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
   font-size: 1.4rem;
   line-height: 1.6rem;
-  color: #505050;
   background-color: #2a2a2a;
-  text-align: center;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  color: #4c4c4c;
 }
 a {
-  color: #414141;
+  color: #4c4c4c;
 }
 a:hover {
   color: #1e82d7;
@@ -20,20 +99,98 @@ a:hover {
 }
 nav.navbar-default {
   border-bottom: none;
+  -webkit-font-smoothing: subpixel-antialiased;
   /** Row 1 of the header menu. **/
   /** Row 2 of the header menu. **/
 }
-nav.navbar-default .row1 {
+nav.navbar-default .ceiling {
   background: #ffffff;
 }
-nav.navbar-default .row1 ul {
+nav.navbar-default .ceiling div > ul {
   margin: 0;
   padding: 0;
   list-style-type: none;
 }
-nav.navbar-default .row1 ul li {
+nav.navbar-default .ceiling div > ul > li {
+  margin: 0;
+  padding: 0;
   display: inline;
   line-height: 42px;
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+nav.navbar-default .ceiling div > ul > li a {
+  color: #4c4c4c;
+}
+nav.navbar-default .ceiling div > ul > li .separator {
+  border-left: 1px solid #666666;
+  padding: 0 10px 0 0;
+  margin: 0 0 0 7px;
+}
+nav.navbar-default .ceiling div > ul > li .separator hr {
+  display: none;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right {
+  float: right;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right .btn {
+  margin-left: 5px;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded {
+  position: relative;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded .menu {
+  position: absolute;
+  display: none;
+  z-index: 15;
+  top: 24px;
+  right: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded ul {
+  border-top: 1px solid #ffffff;
+  background: #666666;
+  margin: 0;
+  padding: 0;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded ul li {
+  list-style-type: none;
+  list-style-image: none;
+  margin: 0.2em 0.5 0.2em 0.5em;
+  padding: 0;
+  line-height: normal;
+  font-size: 0.875em;
+  text-align: right;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded ul li a {
+  padding: 5px 6px;
+  color: #ffffff;
+  display: block;
+  white-space: nowrap;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded ul li a:hover {
+  text-decoration: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded.expanded-green ul {
+  background: #5aaa28;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded.expanded-green ul li a:hover {
+  background: #65bf2d;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded.expanded-gray ul {
+  background: #666666;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded.expanded-gray ul li a:hover {
+  background: #777777;
+}
+nav.navbar-default .ceiling div > ul.menu_tree__menu_ceiling_right li.expanded:hover ul.menu {
+  display: block;
 }
 nav.navbar-default .row2 {
   background: #1a1a1a;
@@ -167,9 +324,45 @@ nav.navbar-default .row2 .navbar-form .search-button:after {
 nav.navbar-default .row2 .navbar-form .search-button.focus:after {
   color: #666666;
 }
-#region-content {
+/** Hero Region **/
+.region-hero {
   margin-top: 35px;
-  padding-top: 50px;
+}
+.region-hero .background {
+  height: 400px;
+  background-color: #555555;
+  background-position: 25% 50%;
+  background-size: auto;
+  color: #ffffff;
+  font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+}
+.region-hero .background h1,
+.region-hero .background h2,
+.region-hero .background h3 {
+  font-family: 'Quicksand', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: normal;
+}
+.region-hero .background h1 {
+  font-size: 34px;
+  line-height: 40px;
+}
+.region-hero .background p {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+.region-hero .background .views-row {
+  padding: 110px 0 10px;
+}
+.region-hero .background .btn {
+  margin-top: 10px;
+  width: 38%;
+}
+.region-content {
+  overflow: hidden;
 }
 /* Overriding any weird behaviors from the logged-in user toolbar. */
 body.toolbar {
@@ -189,4 +382,11 @@ body.toolbar .navbar-fixed-top {
   #toolbar {
     display: none;
   }
+}
+/** Allow drupal overlay to sit on top of navmenu. **/
+#toolbar {
+  z-index: 20000;
+}
+#overlay-container {
+  z-index: 10000;
 }

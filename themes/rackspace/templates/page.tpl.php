@@ -74,26 +74,20 @@
 
 
 <nav class="navbar navbar-default navbar-fixed-top">
-  <div class="row1 hidden-xs">
+  <!-- ceiling -->
+  <div class="ceiling hidden-xs">
     <div class="container clearfix">
-      <div class="col-sm-6 text-left">
-        <ul>
-          <li><?php echo l(t('Support: '), 'https://www.rackspace.com/support') . l(t('1-800-961-4454'), 'tel:+18009614454'); ?></li>
-          <li><?php echo l(t('Sales: '), 'https://www.rackspace.com/sales') . l(t('1-844-858-8901'), 'tel:+18448588901'); ?></li>
-          <li><?php echo l(t('Email Us'), 'https://www.rackspace.com/information/contactus#form'); ?></li>
-          <li><?php echo l(t('Sales Chat'), 'https://www.rackspace.com/#chat'); ?></li>
-        </ul>
-      </div>
-      <div class="col-sm-6 text-right">
-        <ul>
-          <li><a href="">DEVELOPERS</a></li>
-          <li><a href="">PARTNERS</a></li>
-          <li>SIGN UP</li>
-          <li>LOG IN</li>
-        </ul>
+      <div class="row">
+        <div class="col-sm-6 ceiling-col">
+          <?php print $ceiling_left; ?>
+        </div>
+        <div class="col-sm-6 ceiling-col">
+          <?php print $ceiling_right; ?>
+        </div>
       </div>
     </div>
   </div>
+  <!-- ./ceiling -->
   <div class="row2">
     <div class="container">
       <!-- Company Logo -->
@@ -123,10 +117,18 @@
   </div>
 </nav>
 
+<!-- .region-hero -->
+<?php if (!empty($page['hero'])): ?>
+  <div class="region-hero">
+    <?php print render($page['hero']); ?>
+  </div>
+<?php endif; ?>
+<!-- /.region-hero -->
 
-<!-- BEGIN CONTENT -->
+
+<!-- .region-content -->
 <?php if (!empty($page['content'])): ?>
-  <div id="region-content">
+  <div class="region-content">
     <div class="container">
       <?php if (!empty($page['highlighted'])): ?>
         <!-- .region-highlighted -->
@@ -153,16 +155,12 @@
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
       <!-- /.drupal-help -->
-
-      <!-- .region-content -->
-      <div class="region-content">
-        <?php print render($page['content']); ?>
-      </div>
-      <!-- /.region-content -->
     </div>
+
+    <?php print render($page['content']); ?>
   </div>
 <?php endif; ?>
-
+<!-- /.region-content -->
 
 
 <?php if (!empty($page['footer'])): ?>

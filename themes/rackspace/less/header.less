@@ -1,20 +1,103 @@
 nav.navbar-default {
   border-bottom: none;
-
+  -webkit-font-smoothing: subpixel-antialiased;
   /** Row 1 of the header menu. **/
-  .row1 {
+  .ceiling {
     background: @white;
-    ul {
+
+    div > ul {
       margin: 0;
       padding: 0;
       list-style-type: none;
-      li {
+      > li {
+        margin: 0;
+        padding: 0;
         display: inline;
         line-height: 42px;
+        font-size: 10px;
+        text-transform: uppercase;
+        font-weight: 600;
+        a {
+          color: @dark_gray3;
+        }
+        .separator {
+          border-left: 1px solid @medium_gray;
+          padding: 0 10px 0 0;
+          margin: 0 0 0 7px;
+          hr {
+            display: none;
+          }
+        }
+      }
+      &.menu_tree__menu_ceiling_right {
+
+        float: right;
+        .btn {
+          margin-left: 5px;
+        }
+        li.expanded {
+          position: relative;
+          .menu {
+            position: absolute;
+            display: none;
+            z-index: 15;
+            top: 24px;
+            right: 0;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+          }
+          ul {
+            border-top: 1px solid @white;
+            background: @medium_gray;
+            margin: 0;
+            padding: 0;
+            li {
+              list-style-type: none;
+              list-style-image: none;
+              margin: 0.2em 0.5 0.2em 0.5em;
+              padding: 0;
+              line-height: normal;
+              font-size: 0.875em;
+              text-align: right;
+              a {
+                padding: 5px 6px;
+                color: @white;
+                display: block;
+                white-space: nowrap;
+                &:hover {
+                  text-decoration: none;
+                  -webkit-border-radius: 2px;
+                  -moz-border-radius: 2px;
+                  border-radius: 2px;
+                }
+              }
+            }
+          }
+          &.expanded-green {
+            ul {
+              background: @green;
+              li a:hover {
+                background: @green2;
+              }
+            }
+          }
+          &.expanded-gray {
+            ul {
+              background: @medium_gray;
+              li a:hover {
+                background: @medium_gray2;
+              }
+            }
+          }
+          &:hover ul.menu {
+            display: block;
+          }
+        }
+
       }
     }
   }
-
 
   /** Row 2 of the header menu. **/
   .row2 {
