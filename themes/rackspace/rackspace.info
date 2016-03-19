@@ -12,6 +12,7 @@ regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
 regions[hero]           = 'Hero'
 regions[content]        = 'Content'
+regions[carpet]         = 'Carpet'
 regions[footer]         = 'Footer'
 regions[basement]       = 'Basement'
 
