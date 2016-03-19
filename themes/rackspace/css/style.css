@@ -338,10 +338,10 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   color: #666666;
 }
 /** Hero Region **/
-.region-hero {
+.outer-region-hero {
   margin-top: 35px;
 }
-.region-hero .background {
+.outer-region-hero .background {
   height: 400px;
   background-color: #555555;
   background-position: 25% 50%;
@@ -349,32 +349,32 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   color: #ffffff;
   font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
 }
-.region-hero .background h1,
-.region-hero .background h2,
-.region-hero .background h3 {
+.outer-region-hero .background h1,
+.outer-region-hero .background h2,
+.outer-region-hero .background h3 {
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: normal;
 }
-.region-hero .background h1 {
+.outer-region-hero .background h1 {
   font-size: 34px;
   line-height: 40px;
 }
-.region-hero .background p {
+.outer-region-hero .background p {
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
   letter-spacing: 1px;
 }
-.region-hero .background .views-row {
+.outer-region-hero .background .views-row {
   padding: 110px 0 10px;
 }
-.region-hero .background .btn {
+.outer-region-hero .background .btn {
   margin-top: 10px;
   width: 38%;
 }
-.region-content {
+.outer-region-content {
   background: #ffffff;
   overflow: hidden;
 }
@@ -430,39 +430,79 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
 #block-views-news-events-block .well:hover .date-cat {
   color: #ffffff;
 }
-.region-footer {
+/** Carpet Region **/
+.outer-region-carpet {
+  -webkit-font-smoothing: subpixel-antialiased;
+  padding: 10px 0;
+  background: #c40022;
+  color: #ffffff;
+}
+.outer-region-carpet a {
+  color: #f2f5f5;
+}
+.outer-region-carpet a:hover {
+  color: #ffffff;
+  text-decoration: none;
+}
+.outer-region-carpet p {
+  margin-bottom: 0;
+}
+.outer-region-carpet .lead {
+  font-size: 3rem;
+  line-height: 2.5rem;
+}
+.outer-region-carpet ul {
+  padding: 0;
+  margin: 0;
+}
+.outer-region-carpet ul li {
+  float: left;
+  padding: 0;
+  margin: 0 5px 0 0;
+  list-style-type: none;
+}
+.outer-region-carpet ul li.offset-mobile {
+  margin-top: 10px;
+}
+.outer-region-carpet ul li.offset-envelope {
+  margin-top: 15px;
+}
+.outer-region-carpet ul li.offset-comments {
+  margin-top: 15px;
+}
+.outer-region-footer {
   -webkit-font-smoothing: subpixel-antialiased;
 }
-.region-footer ul {
+.outer-region-footer ul {
   margin: 0;
   padding: 0;
 }
-.region-footer ul li {
+.outer-region-footer ul li {
   margin: 0;
   padding: 0;
   list-style-image: none;
   list-style-type: none;
 }
-.region-footer .block-menu {
+.outer-region-footer .block-menu {
   padding: 30px 0;
 }
-.region-footer span.nolink {
+.outer-region-footer span.nolink {
   font-size: 13px;
   color: #ffffff;
   font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
   text-transform: uppercase;
 }
-.region-footer a {
+.outer-region-footer a {
   color: #aaaaaa;
   font-size: 12px;
   line-height: 16px;
 }
-.region-footer .no-label > span.nolink {
+.outer-region-footer .no-label > span.nolink {
   display: block;
   text-indent: -10000px;
 }
 /** Basement Region **/
-.region-basement {
+.outer-region-basement {
   -webkit-font-smoothing: subpixel-antialiased;
   background: #1a1a1a;
   color: #ffffff;
@@ -471,11 +511,11 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   padding: 3px 0 6px 0;
   text-transform: uppercase;
 }
-.region-basement p {
+.outer-region-basement p {
   margin: 0;
   line-height: 20px;
 }
-.region-basement select {
+.outer-region-basement select {
   background: #ffffff;
   background-attachment: scroll;
   background-clip: border-box;
@@ -486,13 +526,13 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   color: #505050;
   -webkit-appearance: menulist;
 }
-.region-basement .copyright {
+.outer-region-basement .copyright {
   text-transform: capitalize;
   font-size: 0.8em;
   line-height: 1.4em;
   color: #666666;
 }
-.region-basement .region-selector {
+.outer-region-basement .region-selector {
   margin-top: 2px;
   background: url('https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/sprites/global_flags.png');
   width: 20px;

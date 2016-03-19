@@ -1,0 +1,40 @@
+/** Carpet Region **/
+.outer-region-carpet {
+  -webkit-font-smoothing: subpixel-antialiased;
+  padding: 10px 0;
+  background: @red;
+  color: @white;
+  a {
+    color: @near_white;
+    &:hover {
+      color: @white;
+      text-decoration: none;
+    }
+  }
+  p {
+    margin-bottom: 0;
+  }
+  .lead {
+    font-size: 3rem;
+    line-height: 2.5rem;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    li {
+      float: left;
+      padding: 0;
+      margin: 0 5px 0 0;
+      list-style-type: none;
+      &.offset-mobile {
+        margin-top: 10px;
+      }
+      &.offset-envelope {
+        margin-top: 15px;
+      }
+      &.offset-comments {
+        margin-top: 15px;
+      }
+    }
+  }
+}
