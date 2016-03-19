@@ -1,6 +1,5 @@
 /** Carpet Region **/
 .outer-region-carpet {
-  -webkit-font-smoothing: subpixel-antialiased;
   padding: 10px 0;
   background: @red;
   color: @white;
@@ -19,13 +18,10 @@
     line-height: 2.5rem;
   }
   ul {
-    padding: 0;
-    margin: 0;
+    .clean-ul();
     li {
       float: left;
-      padding: 0;
-      margin: 0 5px 0 0;
-      list-style-type: none;
+      margin-right: 5px;
       &.offset-mobile {
         margin-top: 10px;
       }

@@ -1,17 +1,15 @@
+/** Header Region **/
 nav.navbar-default {
   border-bottom: none;
-  -webkit-font-smoothing: subpixel-antialiased;
-  /** The Ceiling **/
+
+  // The ceiling
   .ceiling {
     background: @white;
 
     div > ul {
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
+      .clean-ul();
+
       > li {
-        margin: 0;
-        padding: 0;
         display: inline;
         line-height: 42px;
         font-size: 10px;
@@ -43,18 +41,14 @@ nav.navbar-default {
             z-index: 15;
             top: 24px;
             right: 0;
-            -webkit-border-radius: 5px;
-            -moz-border-radius: 5px;
-            border-radius: 5px;
+            .border-radius(5px);
           }
           ul {
+            .clean-ul();
             border-top: 1px solid @white;
             background: @medium_gray;
-            margin: 0;
-            padding: 0;
+
             li {
-              list-style-type: none;
-              list-style-image: none;
               margin: 0.2em 0.5 0.2em 0.5em;
               padding: 0;
               line-height: normal;
@@ -67,9 +61,7 @@ nav.navbar-default {
                 white-space: nowrap;
                 &:hover {
                   text-decoration: none;
-                  -webkit-border-radius: 2px;
-                  -moz-border-radius: 2px;
-                  border-radius: 2px;
+                  .border-radius(2px);
                 }
               }
             }
@@ -256,48 +248,3 @@ nav.navbar-default {
     }
   }
 }
-
-///*** Header Region ***/
-//#header {
-//  position: fixed;
-//  top: 0;
-//  width: 100%;
-//  z-index: 250;
-//
-//  /** all header lists should be treated as inlines **/
-//  ul {
-//    margin: 0;
-//    padding: 0;
-//    list-style-type: none;
-//    li {
-//      display: inline;
-//    }
-//  }
-//
-//  /** Ceiling **/
-//  #ceiling-bar {
-//    background: @white;
-//    text-transform: uppercase;
-//    font-size: 73%;
-//    font-weight: 600;
-//    line-height: 42px;
-//    height: auto;
-//  }
-//
-//  #navigation-bar {
-//    background: @black;
-//    height: 60px;
-//    line-height: 60px;
-//    a {
-//      color: @white;
-//      &.logo {
-//        display: block;
-//        width: 100%;
-//        height: 60px;
-//        background: url(@logo) center center no-repeat @red;
-//        background-size: 90%;
-//      }
-//    }
-//  }
-//
-//}

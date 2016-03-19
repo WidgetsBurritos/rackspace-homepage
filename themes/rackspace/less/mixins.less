@@ -1,0 +1,46 @@
+// Sets all necessary border radius values.
+.border-radius(@size) {
+  -webkit-border-radius: @size;
+  -moz-border-radius: @size;
+  border-radius: @size;
+}
+
+// Removes padding, margin and icons from <ul>'s and their <li>'s
+.clean-ul() {
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    list-style-image: none;
+  }
+}
+
+// Sets the specified css to run at < 768px
+.respond-to-mobile(@css) {
+  @media screen and (max-width: (@responsive_break - 1)) {
+  @css();
+  }
+}
+
+// Sets the specified css to run at >= 768px
+.respond-to-desktop(@css) {
+  @media screen and (min-width: @responsive_break) {
+  @css();
+  }
+}
+
+// Sets the specified css to run at >= 768px
+.respond-to-desktop(@css) {
+  @media screen and (min-width: @responsive_break) {
+  @css();
+  }
+}
+
+// Sets the specified css to run at < 768px
+.respond-to-mobile(@css) {
+  @media screen and (max-width: (@responsive_break - 1)) {
+  @css();
+  }
+}

@@ -73,7 +73,7 @@
 <!-- .navbar-fixed-top -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <!-- ceiling -->
-  <div class="ceiling hidden-xs">
+  <div class="ceiling hidden-xs hidden-sm">
     <div class="container clearfix">
       <div class="row">
         <div class="col-sm-6 ceiling-col">
