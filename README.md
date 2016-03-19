@@ -52,7 +52,7 @@ If you don't know what the IP address you can just run the following command to 
 
 #### Locations of App-Specific Resources
 
-Since Docker builds Drupal from a image, our app-specific resources are located in the following locations:
+Since Docker builds Drupal from a image, our app-specific resources are located in the following locations relative to the application path:
 
 - Modules:  `./modules/`
 - Themes: `./themes/`
