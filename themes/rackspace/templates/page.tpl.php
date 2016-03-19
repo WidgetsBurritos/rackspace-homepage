@@ -67,41 +67,51 @@
  * @see template_preprocess_page()
  * @see template_process()
  * @see html.tpl.php
- *
- * @ingroup themeable
  */
 ?>
 
-
+<!-- .navbar-fixed-top -->
 <nav class="navbar navbar-default navbar-fixed-top">
   <!-- ceiling -->
   <div class="ceiling hidden-xs">
     <div class="container clearfix">
       <div class="row">
         <div class="col-sm-6 ceiling-col">
-          <?php print $ceiling_left; ?>
+          <?php
+          if (!empty($page['ceiling_left'])) {
+            print render($page['ceiling_left']);
+          }
+          ?>
         </div>
         <div class="col-sm-6 ceiling-col">
-          <?php print $ceiling_right; ?>
+          <?php
+          if (!empty($page['ceiling_right'])) {
+            print render($page['ceiling_right']);
+          }
+          ?>
         </div>
       </div>
     </div>
   </div>
   <!-- ./ceiling -->
+
+  <!-- .main-menu -->
   <div class="main-menu">
     <div class="container">
-      <!-- Company Logo -->
+      <!-- ./navbar-header -->
       <div class="navbar-header">
         <a class="navbar-brand" href="#">
           <img alt="Rackspace - the #1 managed cloud company"
                src="https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/navigation/rackspace-logo-tagline-simplified.svg"/>
         </a>
       </div>
-      <!-- End Company Logo -->
+      <!-- ./navbar-header -->
 
-      <!-- Collapses on mobile -->
+      <!-- .navbar-collapse -->
       <div class="collapse navbar-collapse" id="main-menu-nav">
-        <?php print $primary_navigation; ?>
+        <?php
+        print $primary_navigation;
+        ?>
 
         <form action="https://www.rackspace.com/searchresults"
               class="navbar-form navbar-right" role="search">
@@ -112,22 +122,27 @@
           <span id="search-button" class="search-button"></span>
         </form>
       </div>
-      <!-- End mobile collapse -->
+      <!-- ./navbar-collapse -->
     </div>
   </div>
+  <!-- /.main-menu -->
 </nav>
+<!-- /.navbar-fixed-top -->
 
-<!-- .region-hero -->
+
 <?php if (!empty($page['hero'])): ?>
-  <div class="region-hero">
+  <!-- .region-hero -->
+  <div class="region-hero text-left">
     <?php print render($page['hero']); ?>
   </div>
+  <!-- /.region-hero -->
 <?php endif; ?>
-<!-- /.region-hero -->
 
 
-<!-- .region-content -->
+
+
 <?php if (!empty($page['content'])): ?>
+  <!-- .region-content -->
   <div class="region-content">
     <div class="container">
       <?php if (!empty($page['highlighted'])): ?>
@@ -159,27 +174,27 @@
 
     <?php print render($page['content']); ?>
   </div>
+  <!-- /.region-content -->
 <?php endif; ?>
-<!-- /.region-content -->
-
 
 <?php if (!empty($page['footer'])): ?>
   <!-- .region-footer -->
   <div class="region-footer">
-    <div class="container">
+    <div class="container clearfix">
       <?php print render($page['footer']); ?>
     </div>
   </div>
   <!-- /.region-footer -->
 <?php endif; ?>
-<!-- END FOOTER -->
 
 
 <?php if (!empty($page['basement'])): ?>
   <!-- .region-basement -->
   <div class="region-basement">
     <div class="container">
-      <?php print render($page['basement']); ?>
+      <div class="row clearfix">
+        <?php print render($page['basement']); ?>
+      </div>
     </div>
   </div>
   <!-- /.region-basement -->

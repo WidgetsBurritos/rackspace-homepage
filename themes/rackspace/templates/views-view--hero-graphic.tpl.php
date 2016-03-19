@@ -4,8 +4,6 @@
  *
  * Adds a custom wrapper around the hero graphic view, including a background
  * image if specified by the user.
- *
- * @ingroup themeable
  */
 
 

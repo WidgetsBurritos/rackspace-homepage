@@ -1,0 +1,42 @@
+/** Basement Region **/
+.region-basement {
+  -webkit-font-smoothing: subpixel-antialiased;
+  background: @black;
+  color: @white;
+  font-size: 1.2rem;
+  line-height: 18px;
+  padding: 3px 0 6px 0;
+  text-transform: uppercase;
+
+  p {
+    margin: 0;
+    line-height: 20px;
+  }
+  select {
+    background: @white;
+    background-attachment: scroll;
+    background-clip: border-box;
+    background-size: auto;
+    display: inline;
+    font-family: @font_primary;
+    font-size: 11px;
+    color: @dark_gray4;
+    -webkit-appearance: menulist;
+  }
+  .copyright {
+    text-transform: capitalize;
+    font-size: 0.8em;
+    line-height: 1.4em;
+    color: @medium_gray;
+  }
+
+  .region-selector {
+    margin-top: 2px;
+    background: url(@img-flags);
+    width: 20px;
+    height: 13px;
+    display: inline-block;
+    position: relative;
+    top: 2px;
+  }
+}

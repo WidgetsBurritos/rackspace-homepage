@@ -79,20 +79,31 @@ Montserrat font definitions, grabbed directly from the Rackspace CSS file, as th
   border: none;
   color: #ffffff;
 }
+.well {
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+  border: none;
+}
 body {
   font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
   font-size: 1.4rem;
   line-height: 1.6rem;
+  color: #4c4c4c;
   background-color: #2a2a2a;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
-  color: #4c4c4c;
+  text-align: center;
 }
 a {
   color: #4c4c4c;
 }
 a:hover {
   color: #1e82d7;
+}
+p {
+  letter-spacing: 0.01em;
+  line-height: 160%;
 }
 .all-caps {
   text-transform: uppercase;
@@ -220,6 +231,7 @@ nav.navbar-default .main-menu #main-menu-nav li.depth-1 a {
   white-space: nowrap;
   color: #eeeeee;
   padding: 0px 15px 0px 15px;
+  cursor: pointer;
 }
 nav.navbar-default .main-menu #main-menu-nav li.depth-1 > span.nolink,
 nav.navbar-default .main-menu #main-menu-nav li.depth-1 > a {
@@ -308,6 +320,7 @@ nav.navbar-default .main-menu .navbar-form .search-button {
   width: 13px;
   position: absolute;
   right: 5px;
+  cursor: pointer;
 }
 nav.navbar-default .main-menu .navbar-form .search-button button {
   background: none;
@@ -362,7 +375,131 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   width: 38%;
 }
 .region-content {
+  background: #ffffff;
   overflow: hidden;
+}
+/** News & Event Block **/
+#block-views-news-events-block {
+  padding: 40px 0;
+  background: #f2f5f5;
+}
+#block-views-news-events-block a {
+  text-decoration: none;
+}
+#block-views-news-events-block h2 {
+  font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 100%;
+  margin: 0 0 40px 0;
+}
+#block-views-news-events-block .well {
+  background: #ffffff;
+}
+#block-views-news-events-block .well h3 {
+  color: #333333;
+  font-weight: 700;
+  font-size: 21px;
+  line-height: 24px;
+  margin-bottom: 20px;
+  height: 96px;
+}
+#block-views-news-events-block .well .date-cat {
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #666666;
+}
+#block-views-news-events-block .well .body {
+  font-weight: 400;
+  font-size: 14px;
+  padding-bottom: 20px;
+  min-height: 66px;
+  height: 66px;
+  margin-bottom: 55px;
+  overflow: hidden;
+}
+#block-views-news-events-block .well .read-more {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#block-views-news-events-block .well:hover {
+  background: #666666;
+  color: #ffffff;
+}
+#block-views-news-events-block .well:hover h3,
+#block-views-news-events-block .well:hover .date-cat {
+  color: #ffffff;
+}
+.region-footer {
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+.region-footer ul {
+  margin: 0;
+  padding: 0;
+}
+.region-footer ul li {
+  margin: 0;
+  padding: 0;
+  list-style-image: none;
+  list-style-type: none;
+}
+.region-footer .block-menu {
+  padding: 30px 0;
+}
+.region-footer span.nolink {
+  font-size: 13px;
+  color: #ffffff;
+  font-family: 'Montserrat', 'Helvetica', 'Arial', sans-serif;
+  text-transform: uppercase;
+}
+.region-footer a {
+  color: #aaaaaa;
+  font-size: 12px;
+  line-height: 16px;
+}
+.region-footer .no-label > span.nolink {
+  display: block;
+  text-indent: -10000px;
+}
+/** Basement Region **/
+.region-basement {
+  -webkit-font-smoothing: subpixel-antialiased;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-size: 1.2rem;
+  line-height: 18px;
+  padding: 3px 0 6px 0;
+  text-transform: uppercase;
+}
+.region-basement p {
+  margin: 0;
+  line-height: 20px;
+}
+.region-basement select {
+  background: #ffffff;
+  background-attachment: scroll;
+  background-clip: border-box;
+  background-size: auto;
+  display: inline;
+  font-family: 'Open Sans', 'Helvetica', 'Arial', sans-serif;
+  font-size: 11px;
+  color: #505050;
+  -webkit-appearance: menulist;
+}
+.region-basement .copyright {
+  text-transform: capitalize;
+  font-size: 0.8em;
+  line-height: 1.4em;
+  color: #666666;
+}
+.region-basement .region-selector {
+  margin-top: 2px;
+  background: url('https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/sprites/global_flags.png');
+  width: 20px;
+  height: 13px;
+  display: inline-block;
+  position: relative;
+  top: 2px;
 }
 /* Overriding any weird behaviors from the logged-in user toolbar. */
 body.toolbar {
