@@ -50,15 +50,15 @@ If you don't know what the IP address you can just run the following command to 
 ---
 ## Other Items of Importance
 
-#### Locations of Drupal Modules, Themes, Libraries, Files and settings.php
+#### Locations of App-Specific Resources
 
-Our Docker application has completely isolated the modules, themes, libraries, files and settings.php from the rest of the Drupal 7 code base, from the host machine's perspective.
+Since Docker builds Drupal from a image, our app-specific resources are located in the following locations:
 
-- Modules are located in the `./modules/` directory.
-- Themes are located in the `./themes/` directory.
-- Libraries are located in the `./libraries/` directory.
-- Files are located in the `./files/` directory.
-- The default settings.php file is located at `./settings.php`
+- Modules:  `./modules/`
+- Themes: `./themes/`
+- Libraries: `./libraries/`
+- Files: `./files/`
+- Settings file: `./settings.php`
 
 #### Running Drush Commands
 
