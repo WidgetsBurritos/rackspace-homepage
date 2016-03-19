@@ -6,8 +6,8 @@ core = 7.x
 ;; Regions
 ;;;;;;;;;;;;;;;;;;;;;
 
-regions[ceiling]        = 'Ceiling'
-regions[navigation]     = 'Navigation'
+regions[ceiling_left]   = 'Ceiling - Left'
+regions[ceiling_right]  = 'Ceiling - Right'
 regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
 regions[hero]           = 'Hero'
