@@ -7,7 +7,13 @@
  * @param $hook
  */
 function rackspace_preprocess_html(&$variables) {
-  // Add the fonts from google webfonts.
+  // For a revisioned version using the 1200px grid instead of 960px grid add '?bootstrap1200' to the URL.
+  $params = drupal_get_query_parameters();
+  if (isset($params['bootstrap1200'])) {
+    drupal_add_css(drupal_get_path('theme', 'rackspace') . '/bootstrap/css/bootstrap.1200.min.css', array('group' => CSS_THEME));
+  }
+
+  // Add the fonts from Google & icons from FontAwesome.
   drupal_add_css('//fonts.googleapis.com/css?family=Open+Sans:700,300,600,800,400|Titillium+Web:300,600,400,700|Quicksand:400,300', array('type' => 'external'));
   drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array('type' => 'external'));
 
@@ -26,22 +32,11 @@ function rackspace_preprocess_html(&$variables) {
  * @param $variables
  */
 function rackspace_preprocess_page(&$variables) {
-  // Add a fully expanded navigation tree as $primary_navigation on page.tpl.php
-  $nav_maps = array(
-    'primary_navigation' => 'main-menu',
-    'ceiling_left' => 'menu-ceiling-left',
-    'ceiling_right' => 'menu-ceiling-right',
-  );
-
-  // Setup all page menus
-  foreach ($nav_maps as $variable => $menu) {
-    $menu_tree = menu_tree_all_data($menu);
-    $tree_output_prepare = menu_tree_output($menu_tree);
-    if ($variable == 'primary_navigation') {
-      _rackspace_add_depth_to_menu_tree($tree_output_prepare);
-    }
-    $variables[$variable] = drupal_render($tree_output_prepare);
-  }
+  // Add a fully expanded navigation tree as $primary_navigation
+  $menu_tree = menu_tree_all_data('main-menu');
+  $tree_output_prepare = menu_tree_output($menu_tree);
+  _rackspace_add_depth_to_menu_tree($tree_output_prepare);
+  $variables['primary_navigation'] = drupal_render($tree_output_prepare);
 }
 
 
@@ -52,7 +47,6 @@ function rackspace_preprocess_page(&$variables) {
  * @return string
  */
 function rackspace_menu_tree($variables) {
-  dpm($variables);
   return '<ul class="menu ' . $variables['theme_hook_original'] . '">' . $variables['tree'] . '</ul>';
 }
 
