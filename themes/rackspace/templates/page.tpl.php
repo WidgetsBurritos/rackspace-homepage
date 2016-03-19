@@ -131,26 +131,26 @@
 
 
 <?php if (!empty($page['hero'])): ?>
-  <!-- .region-hero -->
-  <div class="region-hero text-left">
+  <!-- .outer-region-hero -->
+  <div class="outer-region-hero text-left">
     <?php print render($page['hero']); ?>
   </div>
-  <!-- /.region-hero -->
+  <!-- /.outer-region-hero -->
 <?php endif; ?>
 
 
 
 
 <?php if (!empty($page['content'])): ?>
-  <!-- .region-content -->
-  <div class="region-content">
+  <!-- .outer-region-content -->
+  <div class="outer-region-content">
     <div class="container">
       <?php if (!empty($page['highlighted'])): ?>
-        <!-- .region-highlighted -->
-        <div class="region-highlighted">
+        <!-- .outer-region-highlighted -->
+        <div class="outer-region-highlighted">
           <?php print render($page['highlighted']); ?>
         </div>
-        <!-- /.region-highlighted -->
+        <!-- /.outer-region-highlighted -->
       <?php endif; ?>
 
       <!-- Anchor here-->
@@ -162,7 +162,7 @@
         <?php print render($tabs); ?>
       <?php endif; ?>
       <?php if (!empty($page['help'])): ?>
-        <div class="region-help">
+        <div class="outer-region-help">
           <?php print render($page['help']); ?>
         </div>
       <?php endif; ?>
@@ -174,29 +174,42 @@
 
     <?php print render($page['content']); ?>
   </div>
-  <!-- /.region-content -->
+  <!-- /.outer-region-content -->
+<?php endif; ?>
+
+
+<?php if (!empty($page['carpet'])): ?>
+  <!-- .outer-region-carpet -->
+  <div class="outer-region-carpet hidden-xs text-left">
+    <div class="container clearfix">
+      <div class="row">
+        <?php print render($page['carpet']); ?>
+      </div>
+    </div>
+  </div>
+  <!-- /.outer-region-carpet -->
 <?php endif; ?>
 
 <?php if (!empty($page['footer'])): ?>
-  <!-- .region-footer -->
-  <div class="region-footer">
+  <!-- .outer-region-footer -->
+  <div class="outer-region-footer">
     <div class="container clearfix">
       <?php print render($page['footer']); ?>
     </div>
   </div>
-  <!-- /.region-footer -->
+  <!-- /.outer-region-footer -->
 <?php endif; ?>
 
 
 <?php if (!empty($page['basement'])): ?>
-  <!-- .region-basement -->
-  <div class="region-basement">
+  <!-- .outer-region-basement -->
+  <div class="outer-region-basement">
     <div class="container">
       <div class="row clearfix">
         <?php print render($page['basement']); ?>
       </div>
     </div>
   </div>
-  <!-- /.region-basement -->
+  <!-- /.outer-region-basement -->
 <?php endif; ?>
 
