@@ -80,6 +80,8 @@ function rackspace_preprocess_entity(&$variables) {
  * - $column_class_2: The CSS class of column 2 (if $column_ct > 1)
  * - $content_1: The content of column 1
  * - $content_2: The content of column 2 (if $column_ct > 1)
+ * - $pre_column_content: Content that appears above the column section
+ * - $region_css_class: CSS classes that apply to the entire content region
  */
 function rackspace_preprocess_field_content_regions(&$variables) {
   // Retrieve column 1 variables.
