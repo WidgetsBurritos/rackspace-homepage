@@ -22,4 +22,50 @@
     display: block;
     text-indent: -10000px;
   }
+
+  .respond-to-mobile({
+    .region-footer {
+      margin-left: -@grid_gutter;
+      margin-right: -@grid_gutter;
+    }
+    .block-menu {
+      padding: 0;
+    }
+    .content > ul > li {
+      text-align: center;
+      > a, > span.nolink {
+        display: block;
+        padding: 10px 0;
+        cursor: pointer;
+        border-top: 1px solid @medium_gray;
+        border-bottom: 1px solid @medium_gray;
+      }
+      > ul {
+        display: none;
+        > li {
+          > span.nolink {
+            display: none;
+          }
+          > ul {
+            > li {
+              text-align: center;
+              a {
+                display: block;
+                background: @dark_gray2;
+                color: @medium_gray3;
+                border-bottom: 1px solid @dark_gray;
+                padding: 8px 0;
+                &:hover, &:active, &:focus {
+                  background: @dark_gray;
+                  text-decoration: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  }
+);
 }
