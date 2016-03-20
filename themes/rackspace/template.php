@@ -1,12 +1,26 @@
 <?php
 
 /**
- * Adds variables to the html.tpl.php file.
+ * Prepares variables for html templates.
  *
- * @param $vars
- * @param $hook
+ * Default template: html.tpl.php.
+ *
+ * @param array $variables
+ * - $rdf_namespaces
  */
 function rackspace_preprocess_html(&$variables) {
+  // Override existing RDF namespaces to use RDFa 1.1 namespace prefix bindings.
+  if (function_exists('rdf_get_namespaces')) {
+    $rdf = array('prefix' => array());
+    foreach (rdf_get_namespaces() as $prefix => $uri) {
+      $rdf['prefix'][] = $prefix . ': ' . $uri;
+    }
+    if (!$rdf['prefix']) {
+      $rdf = array();
+    }
+    $variables['rdf_namespaces'] = drupal_attributes($rdf);
+  }
+
   // For a revisioned version using the 1200px grid instead of 960px grid add '?bootstrap1200' to the URL.
   $params = drupal_get_query_parameters();
   if (isset($params['bootstrap1200'])) {
@@ -26,10 +40,16 @@ function rackspace_preprocess_html(&$variables) {
   drupal_add_html_head_link($attributes);
 }
 
+
 /**
- * Adds variable to the page.tpl.php file.
+ * Prepares variables for page templates.
  *
- * @param $variables
+ * Default template: html.ptl.php.
+ *
+ * @param array $variables
+ * - $primary_navigation: The main menu of the site formatted with each <li>
+ *   containing a css class indicative of it's depth relative to the root.
+ *   (e.g. li.depth-1, li.depth-2, etc...)
  */
 function rackspace_preprocess_page(&$variables) {
   // Add a fully expanded navigation tree as $primary_navigation
@@ -41,19 +61,14 @@ function rackspace_preprocess_page(&$variables) {
 
 
 /**
- * Adds custom classes to navtrees.
- *
- * @param $variables
- * @return string
+ * Implements theme_menu_tree().
  */
 function rackspace_menu_tree($variables) {
   return '<ul class="menu ' . $variables['theme_hook_original'] . '">' . $variables['tree'] . '</ul>';
 }
 
 /**
- * Adds bootstrap classes to the main menu.
- *
- * @param $variables
+ * Implements theme_menu_tree__MENU_NAME().
  */
 function rackspace_menu_tree__main_menu($variables) {
   return '<ul class="nav navbar-nav ' . $variables['theme_hook_original'] . '">' . $variables['tree'] . '</ul>';

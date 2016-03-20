@@ -1,10 +1,7 @@
 <?php
 /**
  * @file
- * Rackspace theme implementation to display a single Drupal page.
- *
- * The doctype, html, head and body tags are not in this template. Instead they
- * can be found in the html.tpl.php template in this directory.
+ * Displays the basic page structure of the site.
  *
  * Available variables:
  *
@@ -26,6 +23,12 @@
  *   in theme settings.
  * - $site_slogan: The slogan of the site, empty when display has been disabled
  *   in theme settings.
+ * - $hide_site_name: TRUE if the site name has been toggled off on the theme
+ *   settings page. If hidden, the "element-invisible" class is added to make
+ *   the site name visually hidden, but still accessible.
+ * - $hide_site_slogan: TRUE if the site slogan has been toggled off on the
+ *   theme settings page. If hidden, the "element-invisible" class is added to
+ *   make the site slogan visually hidden, but still accessible.
  *
  * Navigation:
  * - $main_menu (array): An array containing the Main menu links for the
@@ -33,6 +36,9 @@
  * - $secondary_menu (array): An array containing the Secondary menu links for
  *   the site, if they have been configured.
  * - $breadcrumb: The breadcrumb trail for the current page.
+ * - $primary_navigation: The main menu of the site formatted with each <li>
+ *   containing a css class indicative of it's depth relative to the root.
+ *   (e.g. li.depth-1, li.depth-2, etc...)
  *
  * Page content (in order of occurrence in the default page.tpl.php):
  * - $title_prefix (array): An array containing additional output populated by
@@ -55,14 +61,17 @@
  *   comment/reply/12345).
  *
  * Regions:
- * - $page['help']: Dynamic help text, mostly for admin pages.
+ * - $page['ceiling_left']: Items for the left portion of the ceiling.
+ * - $page['ceiling_right']: Items for the right portion of the ceiling.
+ * - $page['hero']: Items for the hero content region.
  * - $page['highlighted']: Items for the highlighted content region.
+ * - $page['help']: Dynamic help text, mostly for admin pages.
  * - $page['content']: The main content of the current page.
- * - $page['sidebar_first']: Items for the first sidebar.
- * - $page['sidebar_second']: Items for the second sidebar.
- * - $page['header']: Items for the header region.
+ * - $page['carpet']: Items for the carpet region.
  * - $page['footer']: Items for the footer region.
+ * - $page['basement']: Items for the basement region.
  *
+ * @see rackspace_preprocess_page()
  * @see template_preprocess()
  * @see template_preprocess_page()
  * @see template_process()
