@@ -20,6 +20,60 @@
   @{param}:~"calc(@{string})";
 }
 
+// Creates multi-browser compliant rotation.
+.rotate(@deg) {
+  -webkit-transform: rotate(@deg);
+  -moz-transform: rotate(@deg);
+  -ms-transform: rotate(@deg);
+  -o-transform: rotate(@deg);
+  transform: rotate(@deg);
+}
+
+
+// Creates multi-browser blinking effect.
+.blink(@duration, @animation_name, @iteration_count, @interval, @change_point) {
+  .blink-frames() {
+    to { visibility: hidden; }
+  }
+  animation-duration: @duration;
+  animation-name: @animation_name;
+  animation-iteration-count: @iteration_count;
+  animation-timing-function: steps(@interval, @change_point);
+  @keyframes @animation_name {.blink-frames;};
+
+  -webkit-animation-duration: @duration;
+  -webkit-animation-name: @animation_name;
+  -webkit-animation-iteration-count: @iteration_count;
+  -webkit-animation-timing-function: steps(@interval, start);
+  @-webkit-keyframes @animation_name {.blink-frames;};
+
+  -moz-animation-duration: @duration;
+  -moz-animation-name: @animation_name;
+  -moz-animation-iteration-count: @iteration_count;
+  -moz-animation-timing-function: steps(@interval, start);
+  @-moz-keyframes @animation_name {.blink-frames;};
+
+  -o-animation-duration: @duration;
+  -o-animation-name: @animation_name;
+  -o-animation-iteration-count: @iteration_count;
+  -o-animation-timing-function: steps(@interval, start);
+  @-o-keyframes @animation_name {.blink-frames;};
+}
+
+// Eases in and out.
+.ease-in-out(@time) {
+  @easing: cubic-bezier(0.420, 0.000, 0.580, 1.000);
+  -webkit-transition: all @time @easing;
+  -moz-transition: all @time @easing;
+  -o-transition: all @time @easing;
+  transition: all @time @easing;
+
+  -webkit-transition-timing-function: @easing;
+  -moz-transition-timing-function: @easing;
+  -o-transition-timing-function: @easing;
+  transition-timing-function: @easing;
+}
+
 // Removes padding, margin and icons from <ul>'s and their <li>'s
 .clean-ul() {
   padding: 0;

@@ -1,0 +1,99 @@
+/** Live Chat Style **/
+#live-chat {
+  position: fixed;
+  right: -233px;
+  top: 253px;
+  width: 300px;
+  .ease-in-out(750ms);
+
+  .tab {
+    background: @red;
+    color: @white;
+    left: -33px;
+    top: 0;
+    cursor: pointer;
+    padding-top: 10px;
+    width: 102px;
+    height: 35px;
+    text-transform: uppercase;
+    .rotate(-90deg);
+  }
+
+  .content {
+    position: absolute;
+    left: 66px;
+    top: -33px;
+    height: 200px;
+    background: @red;
+    padding-top: 10px;
+    width: 265px;
+    .chat-window {
+      background: @white;
+      padding: 25px 15px 15px;
+      width: 220px;
+      color: @dark_gray5;
+      margin: auto auto 15px;
+      .header {
+        color: @red;
+        font-size: 2.4rem;
+        margin-bottom: 15px;
+      }
+      .line {
+        margin-bottom: 10px;
+      }
+    }
+    .form {
+      width: 220px;
+      margin-left: 23px;
+      .field {
+        background: @white;
+        line-height: 22px;
+        .blink {
+          .blink(1s, blink, infinite, 2, start);
+        }
+        .red {
+          color: @red2;
+        }
+      }
+      .btn {
+        background: @medium_gray;
+        color: @white;
+        padding: 2px 4px;
+      }
+    }
+    .phone-number {
+      margin: 5px 0;
+      color: @white;
+      text-align: center;
+      a {
+        color: @white;
+        text-decoration: underline;
+        &:hover {
+          &:hover {
+            color: @light_gray3;
+          }
+        }
+      }
+    }
+  }
+  .no-thanks {
+    text-align: right;
+    text-transform: uppercase;
+    background: @black;
+    color: @white;
+    font-weight: 300;
+    font-size: 12px;
+    position: absolute;
+    left: 66px;
+    top: 162px;
+    width: 265px;
+    padding: 3px 15px 0 0;
+    i {
+      margin-left: 10px;
+      margin-right: 5px;
+      padding-left: 2px;
+      padding-right: 2px;
+      border: 1px solid @white;
+    }
+  }
+}

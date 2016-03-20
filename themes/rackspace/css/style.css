@@ -615,9 +615,147 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   position: relative;
   top: 2px;
 }
-/**
-This file contains css declarations that are applicable only to the homepage.
-**/
+/** Live Chat Style **/
+#live-chat {
+  position: fixed;
+  right: -233px;
+  top: 253px;
+  width: 300px;
+  -webkit-transition: all 750ms cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition: all 750ms cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition: all 750ms cubic-bezier(0.42, 0, 0.58, 1);
+  transition: all 750ms cubic-bezier(0.42, 0, 0.58, 1);
+  -webkit-transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  -moz-transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  -o-transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
+}
+#live-chat .tab {
+  background: #c40022;
+  color: #ffffff;
+  left: -33px;
+  top: 0;
+  cursor: pointer;
+  padding-top: 10px;
+  width: 102px;
+  height: 35px;
+  text-transform: uppercase;
+  -webkit-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -o-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+#live-chat .content {
+  position: absolute;
+  left: 66px;
+  top: -33px;
+  height: 200px;
+  background: #c40022;
+  padding-top: 10px;
+  width: 265px;
+}
+#live-chat .content .chat-window {
+  background: #ffffff;
+  padding: 25px 15px 15px;
+  width: 220px;
+  color: #555555;
+  margin: auto auto 15px;
+}
+#live-chat .content .chat-window .header {
+  color: #c40022;
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+}
+#live-chat .content .chat-window .line {
+  margin-bottom: 10px;
+}
+#live-chat .content .form {
+  width: 220px;
+  margin-left: 23px;
+}
+#live-chat .content .form .field {
+  background: #ffffff;
+  line-height: 22px;
+}
+#live-chat .content .form .field .blink {
+  animation-duration: 1s;
+  animation-name: blink;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(2, start);
+  -webkit-animation-duration: 1s;
+  -webkit-animation-name: blink;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: steps(2, start);
+  -moz-animation-duration: 1s;
+  -moz-animation-name: blink;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: steps(2, start);
+  -o-animation-duration: 1s;
+  -o-animation-name: blink;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: steps(2, start);
+}
+@keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-webkit-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-moz-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+@-o-keyframes blink {
+  to {
+    visibility: hidden;
+  }
+}
+#live-chat .content .form .field .red {
+  color: #ff0000;
+}
+#live-chat .content .form .btn {
+  background: #666666;
+  color: #ffffff;
+  padding: 2px 4px;
+}
+#live-chat .content .phone-number {
+  margin: 5px 0;
+  color: #ffffff;
+  text-align: center;
+}
+#live-chat .content .phone-number a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+#live-chat .content .phone-number a:hover:hover {
+  color: #dddddd;
+}
+#live-chat .no-thanks {
+  text-align: right;
+  text-transform: uppercase;
+  background: #1a1a1a;
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 12px;
+  position: absolute;
+  left: 66px;
+  top: 162px;
+  width: 265px;
+  padding: 3px 15px 0 0;
+}
+#live-chat .no-thanks i {
+  margin-left: 10px;
+  margin-right: 5px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border: 1px solid #ffffff;
+}
 /** Hosting Solutions Block **/
 .hosting-solutions .hosting-solution {
   position: relative;

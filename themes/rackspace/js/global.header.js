@@ -1,6 +1,6 @@
 /**
- * @file Global Functionality for the header used throughout the entire website.
- * @author David Stinemetze
+ * @file
+ * Global Functionality for the header used throughout the entire website.
  */
 (function ($) {
   "use strict";
