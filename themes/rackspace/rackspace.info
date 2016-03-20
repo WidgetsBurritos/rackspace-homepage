@@ -32,3 +32,4 @@ scripts[] = bootstrap/js/plugins/collapse.js
 scripts[] = js/jquery.rackspace.js
 scripts[] = js/global.js
 scripts[] = js/global.header.js
+scripts[] = js/global.live-chat.js

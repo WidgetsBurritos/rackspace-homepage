@@ -223,3 +223,30 @@
   <!-- /.outer-region-basement -->
 <?php endif; ?>
 
+
+
+
+<div id="live-chat">
+  <div class="tab"><?php echo t('Live Chat'); ?></div>
+  <div class="content text-left">
+    <div class="chat-window">
+      <div class="header"><?php echo t('Hello.'); ?></div>
+      <div class="line">&rsaquo; <?php echo t('Have questions?'); ?></div>
+      <div class="line">&rsaquo; <?php echo t('I\'m here to help.'); ?></div>
+    </div>
+    <div class="form row">
+      <div class="field col-xs-8">
+        <span class="red"><?php echo t('Click here'); ?></span>
+        <?php echo t('to chat'); ?>
+        <span class="blink">|</span>
+      </div>
+      <div class="btn btn-xs col-xs-3 col-xs-push-1">
+        <?php echo t('Send'); ?>
+      </div>
+    </div>
+    <div class="phone-number">
+      <?php echo t('Call us at'); ?> <a href="tel:tel:+18448585954"><?php echo ('1-844-858-5954'); ?></a>
+    </div>
+  </div>
+  <div class="no-thanks"><?php echo t('No thanks'); ?> <i class="fa fa-times"></i></div>
+</div>
