@@ -17,6 +17,11 @@
     border: none;
     color: @white;
   }
+  &.btn-lg {
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 42px;
+  }
 }
 
 .well {
@@ -24,4 +29,14 @@
   -moz-border-radius: 0px;
   border-radius: 0px;
   border: none;
+}
+
+// Used in places we can't get a .row class wrapper due to system limitations:
+// (Note: Gutter size based on the 960px grid, not 1200px grid.)
+.no-gutter, .no-gutter-left {
+  margin-left: -10px;
+}
+
+.no-gutter, .no-gutter-right {
+  margin-right: -10px;
 }

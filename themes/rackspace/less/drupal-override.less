@@ -10,18 +10,37 @@ body.toolbar {
 .respond-to-mobile({
   body.toolbar {
     padding-top: 0;
-    #header { top: 0;}
+    #header {
+      top: 0;
+    }
   }
   #toolbar {
     display: none;
   }
-});
+}
 
+)
+;
 
 /** Allow drupal overlay to sit on top of navmenu. **/
 #toolbar {
   z-index: 20000;
 }
+
 #overlay-container {
   z-index: 10000;
+}
+
+/** Stop field_collection from adding padding to the view **/
+.field-collection-container {
+  .field-items {
+    .field-item {
+      margin: 0;
+      .field-collection-view {
+        padding: 0;
+        margin: 0;
+        border: none;
+      }
+    }
+  }
 }

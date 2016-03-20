@@ -86,8 +86,37 @@ h2 {
   line-height: 100%;
   margin: 0 0 40px 0;
 }
+strong {
+  font-weight: 600;
+}
 .all-caps {
   text-transform: uppercase;
+}
+input[type=text],
+input[type=email] {
+  padding: 3px 4px;
+  font-size: 1.4rem;
+  border: 1px solid #bfbfbf;
+  width: 100%;
+  color: #333333;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-box-shadow: #ddd 1px 1px 2px inset;
+  -moz-box-shadow: #ddd 1px 1px 2px inset;
+  box-shadow: #ddd 1px 1px 2px inset;
+}
+textarea {
+  border: 2px solid #dddddd;
+  padding: 10px;
+  font-size: 1.6rem;
+  width: 100%;
+  box-sizing: border-box;
+  color: #505050;
+  line-height: 22px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 /** Overrides default Bootstrap settings */
 .btn {
@@ -108,11 +137,24 @@ h2 {
   border: none;
   color: #ffffff;
 }
+.btn.btn-lg {
+  font-size: 1.4rem;
+  font-weight: 600;
+  line-height: 42px;
+}
 .well {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
   border-radius: 0px;
   border: none;
+}
+.no-gutter,
+.no-gutter-left {
+  margin-left: -10px;
+}
+.no-gutter,
+.no-gutter-right {
+  margin-right: -10px;
 }
 /* Overriding any weird behaviors from the logged-in user toolbar. */
 body.toolbar {
@@ -150,6 +192,15 @@ body.toolbar .navbar-fixed-top {
 }
 #overlay-container {
   z-index: 10000;
+}
+/** Stop field_collection from adding padding to the view **/
+.field-collection-container .field-items .field-item {
+  margin: 0;
+}
+.field-collection-container .field-items .field-item .field-collection-view {
+  padding: 0;
+  margin: 0;
+  border: none;
 }
 /** Header Region **/
 nav.navbar-default {
@@ -428,6 +479,21 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   -webkit-font-smoothing: antialiased;
   background: #ffffff;
 }
+.outer-region-content .content-region {
+  padding: 40px 0;
+}
+.outer-region-content .bg-light-gray {
+  background: #f2f5f5;
+}
+.outer-region-content .bg-dark-gray {
+  background: #333333;
+  color: #ffffff;
+}
+.outer-region-content .bg-dark-gray a {
+  color: #ffffff;
+  text-decoration: underline;
+  font-weight: 600;
+}
 /** Carpet Region **/
 .outer-region-carpet {
   padding: 10px 0;
@@ -542,11 +608,7 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
 /**
 This file contains css declarations that are applicable only to the homepage.
 **/
-/* IT Solutions Block **/
-#block-views-it-solutions-block {
-  padding: 40px;
-  background: #f2f5f5;
-}
+/** IT Solutions Block **/
 #block-views-it-solutions-block .rs-col-8 {
   width: 12.5%;
   float: left;
@@ -558,11 +620,72 @@ This file contains css declarations that are applicable only to the homepage.
   width: 70px;
   height: auto;
 }
-/** News & Event Block **/
-#block-views-news-events-block {
-  padding: 40px 0;
-  background: #f2f5f5;
+/** Contact Form Block **/
+.free-advice-from-experts {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
 }
+.free-advice-from-experts .form-padding {
+  padding-left: 40px;
+  margin-bottom: 20px;
+  border-left: 1px solid #666666;
+}
+@media screen and (max-width: 767px) {
+  .free-advice-from-experts .form-padding {
+    padding-left: 10px;
+    border-left: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .free-advice-from-experts .form-padding {
+    padding-left: 10px;
+    border-left: none;
+  }
+}
+.free-advice-from-experts textarea {
+  height: 50px;
+  margin-bottom: 20px;
+}
+.free-advice-from-experts label {
+  font-weight: 400;
+}
+.free-advice-from-experts .form-item,
+.free-advice-from-experts .form-actions {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.free-advice-from-experts .form-submit {
+  margin-top: 20px;
+  margin-right: 20px;
+  float: right;
+  border: none;
+  font-size: 14px;
+  padding: 4px 15px;
+  background: #5aaa28;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.free-advice-from-experts .field-items .field-item .btn-default {
+  background-color: #dddddd;
+  color: #333333;
+  text-decoration: none;
+  font-size: 1.0em;
+  line-height: 3.0em;
+  vertical-align: middle;
+}
+.free-advice-from-experts .field-items .field-item .btn-default i {
+  float: left;
+  margin-right: 15px;
+}
+.free-advice-from-experts .phone-numbers {
+  margin: 30px 0 30px 0;
+}
+.free-advice-from-experts .icon {
+  margin-top: -2px;
+}
+/** News & Event Block **/
 #block-views-news-events-block a {
   text-decoration: none;
 }

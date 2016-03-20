@@ -29,6 +29,31 @@ h2 {
   margin: 0 0 40px 0;
 }
 
+strong {
+  font-weight: 600;
+}
+
 .all-caps {
   text-transform: uppercase;
+}
+
+input[type=text], input[type=email] {
+  padding: 3px 4px;
+  font-size: 1.4rem;
+  border: 1px solid @light_gray4;
+  width: 100%;
+  color: @dark_gray2;
+  .border-radius(2px);
+  .box-shadow(#ddd 1px 1px 2px inset);
+}
+
+textarea {
+  border: 2px solid @light_gray3;
+  padding: 10px;
+  font-size: 1.6rem;
+  width: 100%;
+  box-sizing: border-box;
+  color: @dark_gray4;
+  line-height: 22px;
+  .border-radius(5px);
 }
