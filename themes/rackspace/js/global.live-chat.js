@@ -12,12 +12,14 @@
     $('#live-chat').hover(mouseOverLiveChatSlider, mouseOutLiveChatSlider)
   })
 
-
+  // Slide the live chat slider to the left when moused over.
   var mouseOverLiveChatSlider = function(event) {
     $(this).css('right', '30px');
   }
+
+  // Slide the live chat slider off screen when moused out.
   var mouseOutLiveChatSlider = function(event) {
-    $(this).css('right', '-233px');
+    $(this).css('right', '-234px');
   }
 
 })(jQuery);
