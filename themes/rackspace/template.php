@@ -122,8 +122,6 @@ function rackspace_preprocess_field_content_regions(&$variables) {
       // Column 2 should be rendered as plain content.
       $variables['content_2'] = drupal_render($variables['content']['field_column_2_content']);
     }
-
-
   }
 }
 

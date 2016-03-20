@@ -1,12 +1,135 @@
 /**
 This file contains css declarations that are applicable only to the homepage.
 **/
-
 @import "variables";
 @import "mixins";
 
+/** Hosting Solutions Block **/
+.hosting-solutions {
+  .hosting-solution {
+    position: relative;
+    background: @blue2;
+    border: 9px solid @white;
+    padding: 0;
+    a {
+      color: @white;
+      &:hover, &:active, &:focus {
+        text-decoration: none;
+      }
+    }
+    .box-shadow(0 5px 15px @transparent_black);
+
+    .card-top {
+      padding: 10px 5px 15px;
+      border-bottom: 2px solid @blue9;
+      .solution-icon {
+        display: block;
+        height: 50px;
+        overflow: hidden;
+        line-height: 50px;
+        img {
+          width: 50px;
+          height: auto;
+        }
+      }
+    }
+
+    .card-arrow {
+      position: relative;
+      top: -15px;
+      width: 26px;
+      height: 26px;
+      background-image: url(@card-arrow);
+      background-size: 26px 26px;
+      z-index: 30;
+      .calc_string(left, ~"50% - 13px", 40%);
+    }
+
+    .card-bottom {
+      position: relative;
+      top: -26px;
+      margin-bottom: -26px;
+      padding: 20px 8px 10px;
+      background: @blue3;
+      min-height: 163px;
+      .learn-more {
+        display: block;
+        text-decoration: underline;
+        margin-bottom: 30px;
+      }
+      .solution-body {
+        display: block;
+        height: 96px;
+        overflow: hidden;
+        margin-bottom: 20px;
+      }
+    }
+
+    &:hover {
+      background: @blue4;
+      .card-bottom {
+        background: @blue5;
+      }
+    }
+
+    &.partner {
+      background: @blue5;
+
+      .card-top {
+        border-bottom: 2px solid @blue4;
+        img {
+          width: 95%;
+        }
+      }
+      .card-bottom {
+        background: @blue6;
+      }
+
+      &:hover {
+        background: @blue7;
+        .card-bottom {
+          background: @blue8;
+        }
+      }
+    }
+  }
+  .hosting-rackspace {
+    overflow: visible;
+    h2 { margin-left: 20px;}
+    .views-row-2 {
+      left: 10px;
+    }
+    .views-row-3 {
+      left: 20px;
+    }
+    .footer {
+      padding: 65px 50px 0;
+      background-image: url(@rack-connect);
+      background-size: 389px 60px;
+      background-repeat: no-repeat;
+      background-position: 90px 0;
+    }
+  }
+  .hosting-partner {
+    overflow: visible;
+    padding-left: 35px;
+    h2 { margin-left: -10px;}
+    .views-row-1 {
+      left: -10px;
+    }
+    .footer {
+      padding: 40px 0 0;
+    }
+  }
+  .footer {
+    clear: both;
+    line-height: 150%;
+    a { text-decoration: underline; }
+  }
+}
+
 /** IT Solutions Block **/
-#block-views-it-solutions-block {
+.it-solutions {
   .rs-col-8 {
     width: (1/8)*100%;
     float: left;
@@ -16,6 +139,9 @@ This file contains css declarations that are applicable only to the homepage.
     img {
       width: 70px;
       height: auto;
+    }
+    a:hover {
+      text-decoration: none;
     }
   }
 }
@@ -32,7 +158,8 @@ This file contains css declarations that are applicable only to the homepage.
     .respond-to-mobile({
       padding-left: 10px;
       border-left: none;
-    });
+    }
+  );
   }
 
   textarea {
@@ -63,7 +190,10 @@ This file contains css declarations that are applicable only to the homepage.
     font-size: 1.0em;
     line-height: 3.0em;
     vertical-align: middle;
-    i { float: left; margin-right: 15px; }
+    i {
+      float: left;
+      margin-right: 15px;
+    }
   }
   .phone-numbers {
     margin: 30px 0 30px 0;
@@ -73,10 +203,8 @@ This file contains css declarations that are applicable only to the homepage.
   }
 }
 
-
-
 /** News & Event Block **/
-#block-views-news-events-block {
+.news-events {
   a {
     text-decoration: none;
   }

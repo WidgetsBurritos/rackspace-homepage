@@ -1,14 +1,23 @@
-// Sets all necessary border radius values.
+// Creates multi-browser compliant border radiuses.
 .border-radius(@size) {
   -webkit-border-radius: @size;
   -moz-border-radius: @size;
   border-radius: @size;
 }
 
+// Creates multi-browser compliant box shadows.
 .box-shadow(@shadow) {
   -webkit-box-shadow: @shadow;
   -moz-box-shadow: @shadow;
   box-shadow: @shadow;
+}
+
+// Creates multi-browser-compliant calc strings.
+.calc_string(@param; @string; @failover) {
+  @{param}: @failover;
+  @{param}:~"-webkit-calc(@{string})";
+  @{param}:~"-moz-calc(@{string})";
+  @{param}:~"calc(@{string})";
 }
 
 // Removes padding, margin and icons from <ul>'s and their <li>'s
