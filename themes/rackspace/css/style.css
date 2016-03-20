@@ -194,6 +194,10 @@ body.toolbar .navbar-fixed-top {
   z-index: 10000;
 }
 /** Stop field_collection from adding padding to the view **/
+.field-collection-container {
+  border-bottom: none;
+  margin-bottom: 0;
+}
 .field-collection-container .field-items .field-item {
   margin: 0;
 }
