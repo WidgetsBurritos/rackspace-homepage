@@ -17,9 +17,9 @@ if (!empty($view->result)):
   }
   ?>
 
-  <div class="background"<?php echo $div_attr; ?>>
+  <div class="background"<?php print $div_attr; ?>>
     <div class="container">
-      <?php echo $rows; ?>
+      <?php print $rows; ?>
     </div>
   </div>
 
