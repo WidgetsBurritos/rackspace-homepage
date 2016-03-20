@@ -5,11 +5,8 @@ This file contains css declarations that are applicable only to the homepage.
 @import "variables";
 @import "mixins";
 
-/* IT Solutions Block **/
+/** IT Solutions Block **/
 #block-views-it-solutions-block {
-  padding: 40px;
-  background: @near_white;
-
   .rs-col-8 {
     width: (1/8)*100%;
     float: left;
@@ -23,13 +20,63 @@ This file contains css declarations that are applicable only to the homepage.
   }
 }
 
+/** Contact Form Block **/
+.free-advice-from-experts {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 28px;
+  .form-padding {
+    padding-left: 40px;
+    margin-bottom: 20px;
+    border-left: 1px solid @medium_gray;
+    .respond-to-mobile({
+      padding-left: 10px;
+      border-left: none;
+    });
+  }
+
+  textarea {
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  label {
+    font-weight: 400;
+  }
+  .form-item, .form-actions {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  .form-submit {
+    margin-top: 20px;
+    margin-right: 20px;
+    float: right;
+    border: none;
+    font-size: 14px;
+    padding: 4px 15px;
+    background: @green;
+    .border-radius(4px);
+  }
+  .field-items .field-item .btn-default {
+    background-color: @light_gray3;
+    color: @dark_gray2;
+    text-decoration: none;
+    font-size: 1.0em;
+    line-height: 3.0em;
+    vertical-align: middle;
+    i { float: left; margin-right: 15px; }
+  }
+  .phone-numbers {
+    margin: 30px 0 30px 0;
+  }
+  .icon {
+    margin-top: -2px;
+  }
+}
 
 
 
 /** News & Event Block **/
 #block-views-news-events-block {
-  padding: 40px 0;
-  background: @near_white;
   a {
     text-decoration: none;
   }

@@ -44,7 +44,7 @@ function rackspace_preprocess_html(&$variables) {
 /**
  * Prepares variables for page templates.
  *
- * Default template: html.ptl.php.
+ * Default template: html.tpl.php.
  *
  * @param array $variables
  * - $primary_navigation: The main menu of the site formatted with each <li>
@@ -57,6 +57,72 @@ function rackspace_preprocess_page(&$variables) {
   $tree_output_prepare = menu_tree_output($menu_tree);
   _rackspace_add_depth_to_menu_tree($tree_output_prepare);
   $variables['primary_navigation'] = drupal_render($tree_output_prepare);
+}
+
+/**
+ * Prepares variables for entity templates.
+ */
+function rackspace_preprocess_entity(&$variables) {
+  $is_fci = $variables['entity_type'] == 'field_collection_item';
+  $is_content_regions = isset($variables['field_collection_item']->field_name) && $variables['field_collection_item']->field_name == 'field_content_regions';
+  if ($is_fci && $is_content_regions) {
+    rackspace_preprocess_field_content_regions($variables);
+  }
+}
+
+/**
+ * Prepares variables for field_content_regions display.
+ *
+ * @param array $variables
+ * - $bg_class: The CSS class to apply to the background container.
+ * - $column_ct: The number of columns this content container is.
+ * - $column_class_1: The CSS class of column 1
+ * - $column_class_2: The CSS class of column 2 (if $column_ct > 1)
+ * - $content_1: The content of column 1
+ * - $content_2: The content of column 2 (if $column_ct > 1)
+ */
+function rackspace_preprocess_field_content_regions(&$variables) {
+  // Retrieve column 1 variables.
+  $variables['bg_class'] = isset($variables['field_background_color'][0]['value']) ? $variables['field_background_color'][0]['value'] : '';
+  $variables['column_ct'] = isset($variables['field_columns'][0]['value']) ? $variables['field_columns'][0]['value'] : 0;
+  $variables['column_class_1'] = isset($variables['field_column_1_class'][0]['safe_value']) ? $variables['field_column_1_class'][0]['safe_value'] : '';
+  $variables['pre_column_content'] = isset($variables['field_introduction'][0]['safe_value']) ? $variables['field_introduction'][0]['safe_value'] : '';
+  $variables['region_css_class'] = isset($variables['field_region_css_class'][0]['safe_value']) ? $variables['field_region_css_class'][0]['safe_value'] : '';
+  $content_type_1 = isset($variables['field_column_1_type'][0]['value']) ? $variables['field_column_1_type'][0]['value'] : '';
+
+  if ($content_type_1 == "block") {
+    // Column 1 should be rendered as a block.
+    $variables['content_1'] = drupal_render($variables['content']['field_content_1_block']);
+  }
+  else {
+    // Column 1 should be rendered as plain content.
+    $variables['content_1'] = drupal_render($variables['content']['field_column_1_content']);
+  }
+
+  // In the case of a single column, assign full width to it.
+  if ($variables['column_ct'] < 2) {
+    $variables['column_class_1'] .= ' col-xs-12';
+  }
+  // Otherwise, retrieve multi-column variables, and set column widths accordingly.
+  else {
+    $column_xs = explode('/', $variables['field_xs_column_split'][0]['value']);
+    $column_sm = explode('/', $variables['field_sm_column_split'][0]['value']);
+    $variables['column_class_2'] = $variables['field_column_2_class'][0]['safe_value'];
+    $variables['column_class_1'] .= sprintf(' col-xs-%d col-sm-%d', $column_xs[0], $column_sm[0]);
+    $variables['column_class_2'] .= sprintf(' col-xs-%d col-sm-%d', $column_xs[1], $column_sm[1]);
+    $content_type_2 = $variables['field_column_2_type'][0]['value'];
+
+    if ($content_type_2 == "block") {
+      // Column 2 should be rendered as a block.
+      $variables['content_2'] = drupal_render($variables['content']['field_content_2_block']);
+    }
+    else {
+      // Column 2 should be rendered as plain content.
+      $variables['content_2'] = drupal_render($variables['content']['field_column_2_content']);
+    }
+
+
+  }
 }
 
 
