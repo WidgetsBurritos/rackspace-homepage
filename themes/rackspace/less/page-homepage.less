@@ -95,12 +95,12 @@ This file contains css declarations that are applicable only to the homepage.
   }
   .hosting-rackspace {
     overflow: visible;
-    h2 { margin-left: 20px;}
+    h2 { margin-left: (@grid_gutter * 2);}
     .views-row-2 {
-      left: 10px;
+      left: @grid_gutter;
     }
     .views-row-3 {
-      left: 20px;
+      left: (@grid_gutter * 2);
     }
     .footer {
       padding: 65px 50px 0;
@@ -113,9 +113,9 @@ This file contains css declarations that are applicable only to the homepage.
   .hosting-partner {
     overflow: visible;
     padding-left: 35px;
-    h2 { margin-left: -10px;}
+    h2 { margin-left: -@grid_gutter;}
     .views-row-1 {
-      left: -10px;
+      left: -@grid_gutter
     }
     .footer {
       padding: 40px 0 0;
@@ -156,7 +156,7 @@ This file contains css declarations that are applicable only to the homepage.
     margin-bottom: 20px;
     border-left: 1px solid @medium_gray;
     .respond-to-mobile({
-      padding-left: 10px;
+      padding-left: @grid_gutter;
       border-left: none;
     }
   );
