@@ -518,6 +518,68 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
     height: 28px;
     width: auto;
   }
+  nav.navbar-default .main-menu .container .btn-chat {
+    position: absolute;
+    right: 85px;
+    top: 8px;
+    text-indent: -10000px;
+  }
+  nav.navbar-default .main-menu .container .btn-chat a {
+    position: relative;
+    display: block;
+    z-index: 9;
+    line-height: 30px;
+    width: 100%;
+  }
+  nav.navbar-default .main-menu .container .btn-chat:after {
+    position: absolute;
+    text-indent: 0;
+    right: 0;
+    top: 0;
+    color: #ffffff;
+    font-size: 2rem;
+    content: '\f086';
+    font-family: FontAwesome;
+  }
+  nav.navbar-default .main-menu .container .btn-contact {
+    position: absolute;
+    right: 120px;
+    top: 10px;
+    text-indent: -10000px;
+  }
+  nav.navbar-default .main-menu .container .btn-contact a {
+    position: relative;
+    display: block;
+    z-index: 9;
+    line-height: 30px;
+    width: 100%;
+  }
+  nav.navbar-default .main-menu .container .btn-contact:before {
+    position: absolute;
+    text-indent: 0;
+    right: 12px;
+    top: 0;
+    color: #ffffff;
+    font-size: 2rem;
+    content: '\f095';
+    font-family: FontAwesome;
+    transition: .3s;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+  nav.navbar-default .main-menu .container .btn-contact:after {
+    position: absolute;
+    text-indent: 0;
+    right: 0;
+    top: 8px;
+    color: #ffffff;
+    font-size: .8rem;
+    content: '\f078';
+    font-family: FontAwesome;
+  }
   nav.navbar-default .main-menu .container .navbar-form {
     position: absolute;
     right: 50px;

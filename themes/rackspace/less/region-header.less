@@ -291,6 +291,66 @@ nav.navbar-default {
           width: auto;
         }
       }
+
+      // Chat button
+      .btn-chat {
+        position: absolute;
+        right: 85px;
+        top: 8px;
+        text-indent: -10000px;
+        a {
+          position: relative;
+          display: block;
+          z-index: 9;
+          line-height: 30px;
+          width: 100%;
+        }
+        &:after {
+          position: absolute;
+          text-indent: 0;
+          right: 0; top: 0;
+          color: @white;
+          font-size: 2rem;
+          content: @font_awesome_chat;
+          font-family: @font_awesome;
+        }
+      }
+      // Contact button
+      .btn-contact {
+        position: absolute;
+        right: 120px;
+        top: 10px;
+        text-indent: -10000px;
+        a {
+          position: relative;
+          display: block;
+          z-index: 9;
+          line-height: 30px;
+          width: 100%;
+        }
+        &:before {
+          position: absolute;
+          text-indent: 0;
+          right: 12px; top: 0;
+          color: @white;
+          font-size: 2rem;
+          content: @font_awesome_phone;
+          font-family: @font_awesome;
+          transition: .3s;
+          .rotate(135deg);
+        }
+        &:after {
+          position: absolute;
+          text-indent: 0;
+          right: 0; top: 8px;
+          color: @white;
+          font-size: .8rem;
+          content: @font_awesome_down_arrow;
+          font-family: @font_awesome;
+        }
+      }
+
+
       // Search form
       .navbar-form {
         position: absolute;

@@ -21,12 +21,6 @@ function rackspace_preprocess_html(&$variables) {
     $variables['rdf_namespaces'] = drupal_attributes($rdf);
   }
 
-  // For a revisioned version using the 1200px grid instead of 960px grid add '?bootstrap1200' to the URL.
-  $params = drupal_get_query_parameters();
-  if (isset($params['bootstrap1200'])) {
-    drupal_add_css(drupal_get_path('theme', 'rackspace') . '/bootstrap/css/bootstrap.1200.min.css', array('group' => CSS_THEME));
-  }
-
   // Add the fonts from Google & icons from FontAwesome.
   drupal_add_css('//fonts.googleapis.com/css?family=Open+Sans:700,300,600,800,400|Titillium+Web:300,600,400,700|Quicksand:400,300', array('type' => 'external'));
   drupal_add_css('//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css', array('type' => 'external'));
@@ -107,7 +101,6 @@ function rackspace_preprocess_field_content_regions(&$variables) {
   }
   // Otherwise, retrieve multi-column variables, and set column widths accordingly.
   else {
-    dpm($variables);
     $column_xs = explode('/', $variables['field_xs_column_split'][0]['value']);
     $column_sm = explode('/', $variables['field_sm_column_split'][0]['value']);
     $column_md = explode('/', $variables['field_bootstrap_md_column_split'][0]['value']);
