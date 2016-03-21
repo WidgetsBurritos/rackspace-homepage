@@ -63,6 +63,7 @@
  * Regions:
  * - $page['ceiling_left']: Items for the left portion of the ceiling.
  * - $page['ceiling_right']: Items for the right portion of the ceiling.
+ * - $page['navbar']: Items for the navigation bar region.
  * - $page['hero']: Items for the hero content region.
  * - $page['highlighted']: Items for the highlighted content region.
  * - $page['help']: Dynamic help text, mostly for admin pages.
@@ -104,58 +105,33 @@
 
   <div class="main-menu">
     <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed"
-                data-toggle="collapse" data-target="#main-menu-nav"
-                aria-expanded="false" aria-controls="navbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="title">Menu</span>
-          <span class="sr-only">Toggle navigation</span>
-        </button>
-
-          <a class="navbar-brand" href="<?php echo $base_path; ?>">
-            <img
-              alt="<?php echo t('Rackspace - the #1 managed cloud company'); ?>"
-              class="hidden-xs"
-              src="https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/navigation/rackspace-logo-tagline-simplified.svg"/>
-            <img alt="<?php echo t('Rackspace'); ?>"
-                 class="visible-xs"
-                 src="https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/navigation/rackspace-logo.svg"/>
-          </a>
-      </div>
-      <!-- ./navbar-header -->
-
-      <div class="collapse navbar-collapse" id="main-menu-nav">
+      <div class="row">
         <?php
-        print $primary_navigation;
+        if (!empty($page['navbar'])) {
+          print render($page['navbar']);
+        }
         ?>
 
-        <form action="https://www.rackspace.com/searchresults"
-              class="navbar-form navbar-right" role="search">
-          <div class="form-group">
-            <input type="text" name="query" class="form-control"
-                   placeholder="Search">
-          </div>
-          <span id="search-button" class="search-button"></span>
-        </form>
+        <div class="collapse navbar-collapse" id="main-menu-nav">
+          <?php
+          print $primary_navigation;
+          ?>
+        </div>
+        <!-- ./navbar-collapse -->
       </div>
-      <!-- ./navbar-collapse -->
     </div>
   </div>
   <!-- /.main-menu -->
-</nav><!-- /.navbar-fixed-top -->
+</nav>
+<!-- /.navbar-fixed-top -->
 
 
 <?php if (!empty($page['hero'])): ?>
   <div class="outer-region-hero text-left">
     <?php print render($page['hero']); ?>
-  </div><!-- /.outer-region-hero -->
+  </div>
+  <!-- /.outer-region-hero -->
 <?php endif; ?>
-
-
-
 
 <?php if (!empty($page['content'])): ?>
   <div class="outer-region-content">
@@ -163,7 +139,8 @@
       <?php if (!empty($page['highlighted'])): ?>
         <div class="outer-region-highlighted">
           <?php print render($page['highlighted']); ?>
-        </div><!-- /.outer-region-highlighted -->
+        </div>
+        <!-- /.outer-region-highlighted -->
       <?php endif; ?>
 
       <!-- Anchor here-->
@@ -202,7 +179,6 @@
 
 
 <?php if (!empty($page['carpet'])): ?>
-  <!-- .outer-region-carpet -->
   <div class="outer-region-carpet hidden-xs text-left">
     <div class="container clearfix">
       <div class="row">
@@ -214,7 +190,6 @@
 <?php endif; ?>
 
 <?php if (!empty($page['footer'])): ?>
-  <!-- .outer-region-footer -->
   <div class="outer-region-footer">
     <div class="container clearfix">
       <?php print render($page['footer']); ?>
@@ -225,7 +200,6 @@
 
 
 <?php if (!empty($page['basement'])): ?>
-  <!-- .outer-region-basement -->
   <div class="outer-region-basement">
     <div class="container">
       <div class="row clearfix">

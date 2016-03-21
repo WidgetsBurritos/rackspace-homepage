@@ -9,8 +9,9 @@
   $(document).ready(function () {
     $('#search-button').on('click', clickSearchButton);
     // Trigger sub menus on click (.depth-1) or hover (.depth-2).
-    $('li.expanded.depth-1 > span.nolink, li.expanded.depth-1 > a').on('click', openMenuItem);
-    $('li.expanded.depth-2 > span.nolink, li.expanded.depth-2 > a').on('mouseenter', openMenuItem);
+    $('li.expanded.depth-1 > span.nolink, li.expanded.depth-1 > a').on('click', openSubMenu);
+    $('li.expanded.depth-2 > span.nolink, li.expanded.depth-2 > a').on('mouseenter', openSubMenu);
+    $('li.expanded.depth-2 > span.nolink, li.expanded.depth-2 > a').on('click', openSubMenu);
   })
 
   var lastSearchEvent = '';
@@ -53,11 +54,14 @@
 
   // When someone clicks a parent menu item on the navigation bar we should
   // expand sub-navigation.
-  var openMenuItem = function (event) {
-    var env = findBootstrapEnvironment();
-    if (env == 'xs' || env == 'sm') {
+  var openSubMenu = function (event) {
+    var env = Drupal.behaviors.rackspaceGlobal.findBootstrapEnvironment();
+
+    // Only allow clicks on mobile menu.
+    if ((env !== 'lg' && env !== 'md') && event.type === 'mouseenter') {
       return;
     }
+
     // Find the parent <li class="expanded"> of the clicked item.
     var $li = $(this).closest('li.expanded');
 
@@ -69,21 +73,19 @@
     }
 
     // Hide any neighboring <li>'s submenus.
-    $li.siblings('li.expanded').find('ul.nav')
-      .css('z-index', Drupal.behaviors.rackspaceGlobal.options.zIndexBack)
-      .collapseByDepth(Drupal.behaviors.rackspaceGlobal.options.animationDuration);
-
-    // Show submenu of the clicked menu item.
-    var $nav = $(this).next('ul.nav');
-    $nav.stop(true, true)
-      .css('z-index', Drupal.behaviors.rackspaceGlobal.options.zIndexFront)
-      .expandByDepth(Drupal.behaviors.rackspaceGlobal.options.animationDuration);
+    var $other_menus = $li.siblings('li.expanded').find('ul.nav');
+    $other_menus.css('z-index', Drupal.behaviors.rackspaceGlobal.options.zIndexBack);
+    if (env == 'lg' || env == 'md') {
+      $other_menus.collapseByDepth(Drupal.behaviors.rackspaceGlobal.options.animationDuration);
+    }
+    else {
+      $other_menus.slideUpAndFadeOut(Drupal.behaviors.rackspaceGlobal.options.animationDuration);
+    }
 
     // When the mouse enters the parent <li>, mark the mouse over state.
     var parentEnter = function (event) {
       $(this).data('mouseover', true);
     };
-    $li.mouseenter(parentEnter);
 
     // When the mouse leaves from the parent <li>, wait a while and then
     // check to see if we're still not hovering over the parent <li>.
@@ -99,35 +101,31 @@
       else {
         timeoutLength = Drupal.behaviors.rackspaceGlobal.options.shortTimeoutLength;
       }
-      var timeout = setTimeout(function () {
-        if (!$li.data('mouseover')) {
-          $nav.stop(true, true)
-            .collapseByDepth(Drupal.behaviors.rackspaceGlobal.options.animationDuration);
-        }
-      }, timeoutLength);
-    }
-    $li.mouseleave(parentLeave);
 
-  }
-
-  // Detects which Bootstrap environment we're in.
-  // Function downloaded from here:
-  // http://stackoverflow.com/questions/14441456/how-to-detect-which-device-view-youre-on-using-twitter-bootstrap-api#answer-15150381
-  var findBootstrapEnvironment = function () {
-    var envs = ['xs', 'sm', 'md', 'lg'];
-
-    var $el = $('<div>');
-    $el.appendTo($('body'));
-
-    for (var i = envs.length - 1; i >= 0; i--) {
-      var env = envs[i];
-
-      $el.addClass('hidden-' + env);
-      if ($el.is(':hidden')) {
-        $el.remove();
-        return env;
+      if (env == 'lg' || env == 'md') {
+        var timeout = setTimeout(function () {
+          if (!$li.data('mouseover')) {
+            $nav.stop(true, true)
+              .collapseByDepth(Drupal.behaviors.rackspaceGlobal.options.animationDuration);
+          }
+        }, timeoutLength);
       }
     }
+
+
+    // Show submenu of the clicked menu item.
+    var $nav = $(this).next('ul.nav');
+    $nav.stop(true, true)
+      .css('z-index', Drupal.behaviors.rackspaceGlobal.options.zIndexFront);
+    if (env == 'lg' || env == 'md') {
+      $nav.expandByDepth(Drupal.behaviors.rackspaceGlobal.options.animationDuration);
+      $li.mouseenter(parentEnter);
+      $li.mouseleave(parentLeave);
+    }
+    else {
+      $nav.slideDownAndFadeIn(Drupal.behaviors.rackspaceGlobal.options.animationDuration);
+    }
+
   }
 
 })(jQuery);

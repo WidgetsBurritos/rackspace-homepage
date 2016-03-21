@@ -2,6 +2,7 @@
 .outer-region-footer {
   ul {
     .clean-ul();
+    li { margin-bottom: 5px; }
   }
 
   .block-menu {
@@ -23,6 +24,7 @@
     text-indent: -10000px;
   }
 
+  // Mobile version of the footer menu.
   .respond-to-mobile({
     .region-footer {
       margin-left: -@grid_gutter;
@@ -31,6 +33,7 @@
     .block-menu {
       padding: 0;
     }
+    ul li { margin-bottom: 0; }
     .content > ul > li {
       text-align: center;
       > a, > span.nolink {

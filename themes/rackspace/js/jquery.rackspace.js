@@ -36,17 +36,31 @@
     return this;
   }
 
+  // Slides up and fades out.
+  $.fn.slideUpAndFadeOut = function(duration) {
+    $(this).stop(true, true).slideUp({
+      'duration' : duration,
+      'progress' : progressOpacity
+    });
+  }
+
+  // Slides Down and Fades In.
+  $.fn.slideDownAndFadeIn = function(duration) {
+    $(this).stop(true, true).slideDown({
+      'duration' : duration,
+      'progress' : progressOpacity
+    });
+  }
+
+
   // Collapses a region based on depth classes. If no depth classes exist,
   // this function does nothing, but could easily call a default collapse action.
   $.fn.collapseByDepth = function (duration) {
     var $li = $(this).closest('li.expanded');
 
     // Anything that is not depth-2 should slide down.
-    if (!$li.hasClass('depth-2')) {
-      $(this).stop(true, true).slideUp({
-        'duration' : duration,
-        'progress' : progressOpacity
-      });
+    if ($li.hasClass('depth-1')) {
+      $(this).slideUpAndFadeOut(duration);
     }
     // li.depth-2 should slide left when it's done.
     else if ($li.hasClass('depth-2')) {
@@ -67,11 +81,8 @@
     var $li = $(this).closest('li.expanded');
 
     // Anything that is not depth-2 should slide down.
-    if (!$li.hasClass('depth-2')) {
-      $(this).stop(true, true).slideDown({
-        'duration' : duration,
-        'progress' : progressOpacity
-      });
+    if ($li.hasClass('depth-1')) {
+      $(this).slideDownAndFadeIn(duration);
     }
     // li.depth-2 should slide right
     else if ($li.hasClass('depth-2')) {

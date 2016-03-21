@@ -113,3 +113,24 @@
   @css();
   }
 }
+
+// Sets the specified css to run at >= 992px
+.respond-to-desktop-menu(@css) {
+  @media screen and (max-width: (@menu_break - 1)) {
+  @css();
+  }
+}
+
+// Sets the specified css to run at < 992px
+.respond-to-mobile-menu(@css) {
+  @media screen and (max-width: (@menu_break - 1)) {
+  @css();
+  }
+}
+
+// Sets the specified css to run from 768 to 991px
+.respond-to-in-between(@css) {
+  @media screen and (min-width: @responsive_break) and (max-width: (@menu_break - 1))  {
+  @css();
+  }
+}

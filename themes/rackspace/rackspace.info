@@ -8,6 +8,7 @@ core = 7.x
 
 regions[ceiling_left]   = 'Ceiling - Left'
 regions[ceiling_right]  = 'Ceiling - Right'
+regions[navbar]         = 'Navigation Bar'
 regions[highlighted]    = 'Highlighted'
 regions[help]           = 'Help'
 regions[hero]           = 'Hero'

@@ -2,6 +2,10 @@
 
 /** Hosting Solutions Block **/
 .hosting-solutions {
+  h2 {
+    margin-bottom: 20px;
+  }
+
   .hosting-solution {
     position: relative;
     background: @blue2;
@@ -13,6 +17,7 @@
         text-decoration: none;
       }
     }
+
     .box-shadow(0 5px 15px @transparent_black);
 
     .card-top {
@@ -105,7 +110,7 @@
       background-image: url(@rack-connect);
       background-size: 389px 60px;
       background-repeat: no-repeat;
-      background-position: 90px 0;
+      background-position: center top;
     }
   }
   .hosting-partner {
@@ -207,7 +212,7 @@
     padding-left: 40px;
     margin-bottom: 20px;
     border-left: 1px solid @medium_gray;
-    .respond-to-mobile({
+    .respond-to-mobile-menu({
       padding-left: @grid_gutter;
       border-left: none;
       border-top: 1px solid @medium_gray;

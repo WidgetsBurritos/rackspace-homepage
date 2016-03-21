@@ -107,11 +107,13 @@ function rackspace_preprocess_field_content_regions(&$variables) {
   }
   // Otherwise, retrieve multi-column variables, and set column widths accordingly.
   else {
+    dpm($variables);
     $column_xs = explode('/', $variables['field_xs_column_split'][0]['value']);
     $column_sm = explode('/', $variables['field_sm_column_split'][0]['value']);
+    $column_md = explode('/', $variables['field_bootstrap_md_column_split'][0]['value']);
     $variables['column_class_2'] = $variables['field_column_2_class'][0]['safe_value'];
-    $variables['column_class_1'] .= sprintf(' col-xs-%d col-sm-%d', $column_xs[0], $column_sm[0]);
-    $variables['column_class_2'] .= sprintf(' col-xs-%d col-sm-%d', $column_xs[1], $column_sm[1]);
+    $variables['column_class_1'] .= sprintf(' col-xs-%d col-sm-%d col-md-%d', $column_xs[0], $column_sm[0], $column_md[0]);
+    $variables['column_class_2'] .= sprintf(' col-xs-%d col-sm-%d col-md-%d', $column_xs[1], $column_sm[1], $column_md[1]);
     $content_type_2 = $variables['field_column_2_type'][0]['value'];
 
     if ($content_type_2 == "block") {
