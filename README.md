@@ -23,7 +23,7 @@ From a terminal window, navigate to a directory you wish to install this app int
   - Generates custom SSH keys for use with the ssh container & drush
   - Generates Drush aliases for use with the application.
 
-From the previous step just type in the following commands.
+From the previous step just type in the following commands:
 
 ```
 cd rackspace-homepage
@@ -53,11 +53,10 @@ If you wish to login to Drupal, goto `http://DOCKER_IP_ADDRESS:8910/user` and us
 
 ## Project Notes:
 
-The site was developed to be fully responsive, and make improvements on the existing website's responsiveness by utilizing Bootstrap as the core style framework.
+The site was developed to be fully responsive, and make improvements on the existing website's responsiveness by utilizing bootstrap as the core style framework.
 Bootstrap is normally used for 1200px grids out of the box, but [following the steps laid out here](http://stackoverflow.com/questions/20057380/bootstrap-3-how-to-set-default-grid-to-960px-width#answer-21107438), I converted it into a 960px grid, to match the existing Rackspace grid system.
 
-All external links are programmed to open in a new window, so you don't lose track of the Docker app.
-
+All links to other pages on the website open in the www.rackspace.com counterpart in a new window, so you don't lose track of the Docker app.
 
 #### Modules used:
 - `block_class` - Used to apply css classes to a blocks.
@@ -65,25 +64,25 @@ All external links are programmed to open in a new window, so you don't lose tra
 - `captcha` - Used to add the captcha check on the form.
 - `conditional_fields` - Used to hide fields when they weren't necessary in the admin panel.
 - `ctools` - Required by views.
-- `devel` - Used to debug along the way.
+- `devel` - Used to debug my code along the way.
 - `ds` - Used to layout various entity types, both in the front-end, and administratively.
-- `ds_bootstrap_layouts` - Provided Bootstrap-specific layouts to Display Suite.
+- `ds_bootstrap_layouts` - Provided bootstrap-specific layouts to Display Suite.
 - `entity` - Required by field_collection.
 - `fancybox` - Used for region/language selection modal.
-- `field_collection` - Used to create repeatable subfields for page nodes, allowing for easy embedding of Bootstrap-styled content.
-- `jquery_update` - Used to keep Bootstrap working properly.
+- `field_collection` - Used to create repeatable subfields for page nodes, allowing for easy embedding of bootstrap-styled content.
+- `jquery_update` - Used to meet bootstrap requirements. 
 - `libraries` - Used to store the fancybox library.
 - `menu_attributes` - Used to add CSS classes to menu links, and li tags.
 - `views` - Used to display various content types and taxonomy terms in a more visually appealing way.
-- `recaptcha` - The specific captcha module used.
+- `recaptcha` - The specific captcha mechanism used.
 - `references` - Required by blockreference.
-- `special_menu_items` - Allows the addition of <nolink> and <separator> links, into standard menu functionality.
+- `special_menu_items` - Allows the addition of &lt;nolink&gt; and &lt;separator&gt; links, into standard menu functionality.
 - `views` - Used to display various content types and taxonomy terms in a visually appealing manner.
 - `webform` - Used to create the contact form.
 
 #### Locations of App-Specific Resources:
 
-Since Docker builds Drupal from a image, our app-specific resources are located in the following locations relative to the application path:
+Since Docker builds Drupal from an image, our app-specific resources are located in the following locations relative to the application path:
 
 - Modules:  `./modules/`
 - Themes: `./themes/`
@@ -101,38 +100,38 @@ Here is how each component of the site was constructed:
 
 The ceiling consists of two regions: "Ceiling Left" and "Ceiling Right".
 
-These are both blocks of menus. Making use of the `menu_attributes` and `special_menu_items` modules, I was able to add extra style to the menus.
+Both regions contain menu blocks. Making use of the `menu_attributes` and `special_menu_items` modules, I was able to add extra style to the menus.
 
 #### Navigation Bar Region
 
-The navigation bar consists of a full menu, and a few blocks for the search and mobile navigation icons.
+The navigation bar consists of main navigation menu, and a few content blocks blocks for the search and mobile navigation icons.
 
-The navigation system was built based off the standard bootstrap navigation system, but modified to mimick the existing rackspace.com functionality.
+The navigation system was built based off the standard bootstrap navigation system, but modified to mimick the existing rackspace.com functionality as much as possible.
 
 #### Hero Region
 
-The hero region, utilizes a custom node type, called "Hero Content", which allows a user to enter a background image and content.
-It is then rendered as a block via the "Hero Graphic" view, which is then padding with bootstrap wrappers, via the `views-view--hero-graphic.tpl.php` template file in the theme.
+The hero region, utilizes a custom content type, called **Hero Content**, which allows a user to enter a background image and content.
+It is then rendered as a block via the **Hero Graphic** view, which is then padded with bootstrap wrappers via the `views-view--hero-graphic.tpl.php` template file located in the theme.
 
 #### Content Region
 
-The content region is the combination of the Field Collection module, Views, Blocks and Display Suite.
+The content region is the combination of the Field Collection, Views, Blocks and Display Suite modules.
 
-They are then visually rendered via the `rackspace_preprocess_field_content_regions()` function in the theme's templates.php and via a special template: `field-collection-item--field-content-regions.tpl.php`
+They are rendered via the `rackspace_preprocess_field_content_regions()` function in the theme's `template.php` file and via a special template: `field-collection-item--field-content-regions.tpl.php`
 
-Each individual content region is either a single, or two-columned content area, that can utilize either straight content, or include blocks directly into the page, in a Bootstrap-friendly manner.
+Each individual content region is either a single, or two-columned content area, that can utilize either straight content, or include blocks directly into the page, in a bootstrap-friendly manner.
 
-- The Hosting Solutions section is a 7/5 Bootstrap column structure, where each column has a View Block as its content, displaying the particular Hosting Solution taxonomy terms.
+- The hosting solutions section is a 7/5 bootstrap column structure, where each column has a view-based block as its content, displaying the particular hosting solution taxonomy terms.
 
-- The IT Solutions section is a single View Block referencing all IT Solution taxonomy terms.
+- The IT solutions section is a single view block referencing all IT solution taxonomy terms.
 
-- The contact form section is a 6/6 Bootstrap column structure, where the left column is straight content, and the right content is a Webform Block.
+- The contact form section is a 6/6 bootstrap column structure, where the left column is straight content, and the right content is a webform block.
 
-- The News & Events section is a single-column block referencing article nodes.
+- The News & Events section is a single-column view block. The view itself then breaks the articles up into the 4/4/4 bootstrap layout.
 
 #### Carpet Region
 
-The carpet region is defined by blocks with appropriate Bootstrap css classes.
+The carpet region is defined by blocks with appropriate bootstrap css classes.
 
 #### Footer Region
 
