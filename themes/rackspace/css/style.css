@@ -176,6 +176,27 @@ textarea {
     margin-right: -10px;
   }
 }
+.navbar-default .navbar-toggle {
+  border: none;
+  background: none;
+  color: #ffffff;
+  padding: 0;
+  margin: 10px 10px 0 0;
+  cursor: pointer;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus,
+.navbar-default .navbar-toggle:active {
+  background: none;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  width: 100%;
+  background-color: #ffffff;
+}
+.navbar-default .navbar-toggle .title {
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
 /* Overriding any weird behaviors from the logged-in user toolbar. */
 body.toolbar {
   padding-top: 30px;
@@ -229,6 +250,7 @@ body.toolbar .navbar-fixed-top {
 /** Header Region **/
 nav.navbar-default {
   border-bottom: none;
+  min-height: 40px;
 }
 nav.navbar-default .ceiling {
   background: #ffffff;
@@ -460,6 +482,24 @@ nav.navbar-default .main-menu .navbar-form .search-button:after {
 nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   color: #666666;
 }
+@media screen and (max-width: 767px) {
+  nav.navbar-default .main-menu .navbar-brand {
+    height: 44px;
+  }
+  nav.navbar-default .main-menu .navbar-brand img {
+    height: 28px;
+    width: auto;
+  }
+}
+@media screen and (max-width: 767px) {
+  nav.navbar-default .main-menu .navbar-brand {
+    height: 44px;
+  }
+  nav.navbar-default .main-menu .navbar-brand img {
+    height: 28px;
+    width: auto;
+  }
+}
 /** Hero Region **/
 .outer-region-hero {
   -webkit-font-smoothing: antialiased;
@@ -499,18 +539,32 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   min-width: 38%;
 }
 @media screen and (max-width: 767px) {
+  .outer-region-hero .background {
+    height: 290px;
+  }
   .outer-region-hero .background h1 {
     font-size: 2.7rem;
     line-height: 3.1rem;
+  }
+  .outer-region-hero .background p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
   }
   .outer-region-hero .background .views-row {
     padding: 20px 10px 10px;
   }
 }
 @media screen and (max-width: 767px) {
+  .outer-region-hero .background {
+    height: 290px;
+  }
   .outer-region-hero .background h1 {
     font-size: 2.7rem;
     line-height: 3.1rem;
+  }
+  .outer-region-hero .background p {
+    font-size: 1.4rem;
+    line-height: 1.8rem;
   }
   .outer-region-hero .background .views-row {
     padding: 20px 10px 10px;
@@ -1139,6 +1193,7 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   }
   .hosting-solutions .hosting-rackspace .footer,
   .hosting-solutions .hosting-partner .footer {
+    display: none;
     background-image: none;
     border-bottom: 1px solid #eeeeee;
     padding: 25px 0;
@@ -1182,6 +1237,7 @@ nav.navbar-default .main-menu .navbar-form .search-button.focus:after {
   }
   .hosting-solutions .hosting-rackspace .footer,
   .hosting-solutions .hosting-partner .footer {
+    display: none;
     background-image: none;
     border-bottom: 1px solid #eeeeee;
     padding: 25px 0;

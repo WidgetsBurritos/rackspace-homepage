@@ -54,13 +54,17 @@
   // When someone clicks a parent menu item on the navigation bar we should
   // expand sub-navigation.
   var openMenuItem = function (event) {
+    var env = findBootstrapEnvironment();
+    if (env == 'xs' || env == 'sm') {
+      return;
+    }
     // Find the parent <li class="expanded"> of the clicked item.
     var $li = $(this).closest('li.expanded');
 
     // Fetch/generate unique id for this element.
     var uniqueId = $(this).data('unique-id');
     if (typeof(uniqueId) === "undefined") {
-      uniqueId = 'unique-'+Math.random();
+      uniqueId = 'unique-' + Math.random();
       $(this).data('unique-id', uniqueId);
     }
 
@@ -104,6 +108,26 @@
     }
     $li.mouseleave(parentLeave);
 
+  }
+
+  // Detects which Bootstrap environment we're in.
+  // Function downloaded from here:
+  // http://stackoverflow.com/questions/14441456/how-to-detect-which-device-view-youre-on-using-twitter-bootstrap-api#answer-15150381
+  var findBootstrapEnvironment = function () {
+    var envs = ['xs', 'sm', 'md', 'lg'];
+
+    var $el = $('<div>');
+    $el.appendTo($('body'));
+
+    for (var i = envs.length - 1; i >= 0; i--) {
+      var env = envs[i];
+
+      $el.addClass('hidden-' + env);
+      if ($el.is(':hidden')) {
+        $el.remove();
+        return env;
+      }
+    }
   }
 
 })(jQuery);

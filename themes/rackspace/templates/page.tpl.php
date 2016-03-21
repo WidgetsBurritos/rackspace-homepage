@@ -105,10 +105,25 @@
   <div class="main-menu">
     <div class="container">
       <div class="navbar-header">
-        <a class="navbar-brand" href="<?php echo $base_path; ?>">
-          <img alt="Rackspace - the #1 managed cloud company"
-               src="https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/navigation/rackspace-logo-tagline-simplified.svg"/>
-        </a>
+        <button type="button" class="navbar-toggle collapsed"
+                data-toggle="collapse" data-target="#main-menu-nav"
+                aria-expanded="false" aria-controls="navbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="title">Menu</span>
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+
+          <a class="navbar-brand" href="<?php echo $base_path; ?>">
+            <img
+              alt="<?php echo t('Rackspace - the #1 managed cloud company'); ?>"
+              class="hidden-xs"
+              src="https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/navigation/rackspace-logo-tagline-simplified.svg"/>
+            <img alt="<?php echo t('Rackspace'); ?>"
+                 class="visible-xs"
+                 src="https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/navigation/rackspace-logo.svg"/>
+          </a>
       </div>
       <!-- ./navbar-header -->
 

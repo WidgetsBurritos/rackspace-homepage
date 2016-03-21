@@ -1,6 +1,7 @@
 /** Header Region **/
 nav.navbar-default {
   border-bottom: none;
+  min-height: 40px;
 
   // The ceiling
   .ceiling {
@@ -256,5 +257,15 @@ nav.navbar-default {
         }
       }
     }
+    // Mobile menu behavior
+    .respond-to-mobile({
+      .navbar-brand {
+        height: 44px;
+        img {
+          height: 28px;
+          width: auto;
+        }
+      }
+    });
   }
 }
