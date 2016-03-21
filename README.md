@@ -47,6 +47,8 @@ If you don't know what the IP address you can just run the following command to 
 
 `./scripts/load-site.sh`
 
+If you wish to login to Drupal, goto `http://DOCKER_IP_ADDRESS:8910/user` and user the `admin`/`admin` as your credentials.
+
 ---
 
 ## Project Notes:
@@ -59,18 +61,18 @@ All external links are programmed to open in a new window, so you don't lose tra
 
 #### Modules used:
 - `block_class` - Used to apply css classes to a blocks.
-- `blockreference` - Used to reference blocks as fields.
+- `blockreference` - Used to reference blocks as fields in the content region field collection.
 - `captcha` - Used to add the captcha check on the form.
 - `conditional_fields` - Used to hide fields when they weren't necessary in the admin panel.
-- `ctools` - Required by Views
-- `devel` - Used to debug along the way
+- `ctools` - Required by views.
+- `devel` - Used to debug along the way.
 - `ds` - Used to layout various entity types, both in the front-end, and administratively.
 - `ds_bootstrap_layouts` - Provided Bootstrap-specific layouts to Display Suite.
-- `entity` - Required by field_collection
-- `fancybox` - Used for region/language selection modal
+- `entity` - Required by field_collection.
+- `fancybox` - Used for region/language selection modal.
 - `field_collection` - Used to create repeatable subfields for page nodes, allowing for easy embedding of Bootstrap-styled content.
 - `jquery_update` - Used to keep Bootstrap working properly.
-- `libraries` - Used by fancybox
+- `libraries` - Used to store the fancybox library.
 - `menu_attributes` - Used to add CSS classes to menu links, and li tags.
 - `views` - Used to display various content types and taxonomy terms in a more visually appealing way.
 - `recaptcha` - The specific captcha module used.
@@ -95,22 +97,22 @@ Since Docker builds Drupal from a image, our app-specific resources are located 
 
 Here is how each component of the site was constructed:
 
-#### Ceiling
+#### Ceiling Regions
 
 The ceiling consists of two regions: "Ceiling Left" and "Ceiling Right".
 
-These are both blocks of menus. Making use of the `menu_attributes` and `special_menu_items` modules, I was able to add extra style to the regions, so they weren't standard Drupal Menus.
+These are both blocks of menus. Making use of the `menu_attributes` and `special_menu_items` modules, I was able to add extra style to the menus.
 
-#### Navigation Bar
+#### Navigation Bar Region
 
 The navigation bar consists of a full menu, and a few blocks for the search and mobile navigation icons.
 
-The navigation system was built based off the standard Bootstrap navigation system, but modified to mimick the existing rackspace.com functionality.
+The navigation system was built based off the standard bootstrap navigation system, but modified to mimick the existing rackspace.com functionality.
 
 #### Hero Region
 
 The hero region, utilizes a custom node type, called "Hero Content", which allows a user to enter a background image and content.
-It is then rendered as a block via the "Hero Graphic" view, which is then padding with Bootstrap wrappers, via the `views-view--hero-graphic.tpl.php` template file in the theme.
+It is then rendered as a block via the "Hero Graphic" view, which is then padding with bootstrap wrappers, via the `views-view--hero-graphic.tpl.php` template file in the theme.
 
 #### Content Region
 
@@ -120,7 +122,7 @@ They are then visually rendered via the `rackspace_preprocess_field_content_regi
 
 Each individual content region is either a single, or two-columned content area, that can utilize either straight content, or include blocks directly into the page, in a Bootstrap-friendly manner.
 
-- The Hosting Solutions section is a 7/5 Bootstrap column structure, where each column has a View Block as it's contents, displaying the particular Hosting Solution taxonomy terms.
+- The Hosting Solutions section is a 7/5 Bootstrap column structure, where each column has a View Block as its content, displaying the particular Hosting Solution taxonomy terms.
 
 - The IT Solutions section is a single View Block referencing all IT Solution taxonomy terms.
 
@@ -150,7 +152,7 @@ It also contains a block for the live chat slider.
 
 #### Running Drush Commands
 
-You can run any drush command on your container by doing the following:
+You can run any drush command on your Docker container by doing the following:
 
 `drush @rackdock.dev your-drush-command-here`
 
