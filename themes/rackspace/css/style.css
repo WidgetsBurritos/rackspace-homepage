@@ -211,23 +211,15 @@ body.toolbar .navbar-fixed-top {
   top: 30px;
 }
 /* Toolbar is in the way on mobile site, so just remove it */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 991px) {
   body.toolbar {
-    padding-top: 0;
+    padding-top: 0 !important;
   }
-  body.toolbar #header {
+  body.toolbar .navbar-fixed-top {
     top: 0;
   }
-  #toolbar {
-    display: none;
-  }
-}
-@media screen and (max-width: 767px) {
-  body.toolbar {
-    padding-top: 0;
-  }
-  body.toolbar #header {
-    top: 0;
+  body.toolbar .region-navbar .contextual-links-region {
+    position: static;
   }
   #toolbar {
     display: none;

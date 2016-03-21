@@ -7,20 +7,22 @@ body.toolbar {
 }
 
 /* Toolbar is in the way on mobile site, so just remove it */
-.respond-to-mobile({
+.respond-to-mobile-menu({
   body.toolbar {
-    padding-top: 0;
-    #header {
+    padding-top: 0 !important;
+    .navbar-fixed-top {
       top: 0;
+    }
+    .region-navbar {
+      .contextual-links-region {
+        position: static;
+      }
     }
   }
   #toolbar {
     display: none;
   }
-}
-
-)
-;
+});
 
 /** Allow drupal overlay to sit on top of navmenu. **/
 #toolbar {
