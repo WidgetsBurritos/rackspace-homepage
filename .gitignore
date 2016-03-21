@@ -42,3 +42,4 @@ Thumbs.db
 certs/
 tmp/
 bin/
+backups/

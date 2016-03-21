@@ -9,6 +9,7 @@ services:
     - db
     volumes:
     - /var/www/html
+    - ./backups:/backups
     - ./files:/var/www/html/sites/default/files
     - ./themes:/var/www/html/sites/all/themes
     - ./modules:/var/www/html/sites/all/modules
