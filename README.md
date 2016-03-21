@@ -15,12 +15,12 @@ From a terminal window, navigate to a directory you wish to install this app int
 *setup.sh* does all the hard work:
 
   - Checks software prerequisites
-  - Attempts to download VirtualBox/drush if missing
+  - Attempts to download VirtualBox/Drush if missing
   - Downloads Drupal 7
   - Creates a unique Docker machine
   - Sets Docker environment variables
   - Starts the application containers
-  - Generates custom ssh keys for use with the ssh container & drush
+  - Generates custom ssh keys for use with the ssh container & Drush
   - Generates Drush aliases for use with the application.
 
 From the previous step just type in the following commands:
@@ -30,7 +30,7 @@ cd rackspace-homepage
 ./scripts/setup.sh
 ```
 
-If drush or virtualbox are missing from your system, you will be prompted to install them:
+If Drush or virtualbox are missing from your system, you will be prompted to install them:
 
 > Would you like to install Drush? [y|N]
 
@@ -59,23 +59,22 @@ Bootstrap is normally used for 1200px grids out of the box, but [following the s
 All links to other pages on the website open in the www.rackspace.com counterpart in a new window, so you don't lose track of the Docker app.
 
 #### Modules used
-- `block_class` - Used to apply css classes to a blocks.
+- `block_class` - Used to apply CSS classes to blocks.
 - `blockreference` - Used to reference blocks as fields in the content region field collection.
 - `captcha` - Used to add the captcha check on the form.
 - `conditional_fields` - Used to hide fields when they weren't necessary in the admin panel.
-- `ctools` - Required by views.
+- `ctools` - Required by views module.
 - `devel` - Used to debug my code along the way.
-- `ds` - Used to layout various entity types, both in the front-end, and administratively.
+- `ds` - Used to layout various entity types, both in the front-end and administratively.
 - `ds_bootstrap_layouts` - Provided bootstrap-specific layouts to Display Suite.
-- `entity` - Required by field_collection.
+- `entity` - Required by field_collection module.
 - `fancybox` - Used for region/language selection modal.
-- `field_collection` - Used to create repeatable subfields for page nodes, allowing for easy embedding of bootstrap-styled content.
+- `field_collection` - Used to create repeatable-subfields for page nodes, allowing for easy embedding of bootstrap-styled content.
 - `jquery_update` - Used to meet bootstrap requirements. 
 - `libraries` - Used to store the fancybox library.
-- `menu_attributes` - Used to add CSS classes to menu links, and li tags.
-- `views` - Used to display various content types and taxonomy terms in a more visually appealing way.
+- `menu_attributes` - Used to add CSS classes to menu links, and &lt;li&gt; tags.
 - `recaptcha` - The specific captcha mechanism used.
-- `references` - Required by blockreference.
+- `references` - Required by blockreference module.
 - `special_menu_items` - Allows the addition of &lt;nolink&gt; and &lt;separator&gt; links, into standard menu functionality.
 - `views` - Used to display various content types and taxonomy terms in a visually appealing manner.
 - `webform` - Used to create the contact form.
@@ -98,9 +97,9 @@ Here is how each component of the site was constructed:
 
 #### Ceiling Regions
 
-The ceiling consists of two regions: "Ceiling Left" and "Ceiling Right".
+The ceiling consists of two regions: *Ceiling Left* and *Ceiling Right*.
 
-Both regions contain menu blocks. Making use of the `menu_attributes` and `special_menu_items` modules, I was able to add extra style to the menus.
+Both regions contain menu blocks. Making use of the *menu_attributes* and *special_menu_items* modules, I was able to add extra style to the menus.
 
 #### Navigation Bar Region
 
@@ -115,27 +114,27 @@ It is then rendered as a block via the *Hero Graphic* view, which is then padded
 
 #### Content Region
 
-The content region is a combination of the Field Collection, Views, Blocks and Display Suite modules.
+The *content region* is a combination of the Field Collection, Views, Blocks and Display Suite modules.
 
 They are rendered via the `rackspace_preprocess_field_content_regions()` function in the theme's `template.php` file and via a special template: `field-collection-item--field-content-regions.tpl.php`
 
 Each individual content region is either a single, or two-columned content area, that can utilize either straight content, or include blocks directly into the page, in a bootstrap-friendly manner.
 
-- The hosting solutions section is a 7/5 bootstrap column structure, where each column has a view-based block as its content, displaying the particular hosting solution taxonomy terms.
+- The *hosting solutions* section is a 7/5 bootstrap column structure, where each column has a view-based block as its content, displaying the particular hosting solution taxonomy terms.
 
-- The IT solutions section is a single view block referencing all IT solution taxonomy terms.
+- The *IT solutions* section is a single view block referencing all IT solution taxonomy terms.
 
 - The contact form section is a 6/6 bootstrap column structure, where the left column is straight content, and the right content is a webform block.
 
-- The News & Events section is a single-column view block. The view itself then breaks the articles up into the 4/4/4 bootstrap layout.
+- The *news &amp; events* section is a single-column view block. The view itself then breaks the articles up into the 4/4/4 bootstrap layout.
 
 #### Carpet Region
 
-The carpet region is defined by blocks with appropriate bootstrap css classes.
+The *carpet region* is defined by blocks with appropriate bootstrap CSS classes.
 
 #### Footer Region
 
-The footer is one giant menu block, whose functionality was made to mimick the existing functionality on rackspace.com.
+The *footer region* is one giant menu block, whose functionality was made to mimick the existing functionality on rackspace.com.
 
 #### Basement Region
 
@@ -151,7 +150,7 @@ It also contains a block for the live chat slider.
 
 #### Running Drush Commands
 
-You can run any drush command on your Docker container by doing the following:
+You can run any Drush command on your Docker container by doing the following:
 
 `drush @rackdock.dev your-drush-command-here`
 
