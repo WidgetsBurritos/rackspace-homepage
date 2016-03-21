@@ -91,7 +91,9 @@
   }
   .hosting-rackspace {
     overflow: visible;
-    h2 { margin-left: (@grid_gutter * 2);}
+    h2 {
+      margin-left: (@grid_gutter * 2);
+    }
     .views-row-2 {
       left: @grid_gutter;
     }
@@ -109,7 +111,9 @@
   .hosting-partner {
     overflow: visible;
     padding-left: 35px;
-    h2 { margin-left: -@grid_gutter;}
+    h2 {
+      margin-left: -@grid_gutter;
+    }
     .views-row-1 {
       left: -@grid_gutter
     }
@@ -120,8 +124,52 @@
   .footer {
     clear: both;
     line-height: 150%;
-    a { text-decoration: underline; }
+    a {
+      text-decoration: underline;
+    }
   }
+
+  // Fix gutter-related margins in the mobile version.
+  .respond-to-mobile({
+    .hosting-rackspace,.hosting-partner {
+      padding-left: @grid_gutter;
+
+      h2 {
+        margin-left: 0;
+      }
+
+      .views-row {
+        left: 0;
+        margin-bottom: @grid_gutter;
+      }
+
+      .card-top {
+        .solution-icon {
+          height: 50px;
+          margin-bottom: 4px;
+          img {
+            height: 40px;
+            width: auto;
+          }
+        }
+      }
+      .card-bottom {
+        min-height: auto;
+        .solution-body,.learn-more {
+          height: auto;
+          margin-bottom: 0;
+        }
+      }
+
+      .footer {
+        background-image: none;
+        border-bottom: 1px solid @light_gray;
+        padding: 25px 0;
+        margin-bottom: 25px;
+      }
+    }
+  }
+);
 }
 
 /** IT Solutions Block **/
@@ -140,6 +188,13 @@
       text-decoration: none;
     }
   }
+  .respond-to-mobile({
+    .rs-col-xs-4 {
+      width: (1/4) * 100%;
+      font-size: 0.9em;
+    }
+  }
+);
 }
 
 /** Contact Form Block **/
@@ -154,6 +209,10 @@
     .respond-to-mobile({
       padding-left: @grid_gutter;
       border-left: none;
+      border-top: 1px solid @medium_gray;
+      padding-top: @grid_gutter;
+      margin-top: @grid_gutter;
+      .g-recaptcha { clear: both; }
     }
   );
   }

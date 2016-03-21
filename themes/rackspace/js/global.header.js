@@ -8,21 +8,12 @@
   // DOM is ready
   $(document).ready(function () {
     $('#search-button').on('click', clickSearchButton);
-    $('li.expanded > span.nolink, li.expanded > a').on('click', clickMenuItem);
+    // Trigger sub menus on click (.depth-1) or hover (.depth-2).
+    $('li.expanded.depth-1 > span.nolink, li.expanded.depth-1 > a').on('click', openMenuItem);
+    $('li.expanded.depth-2 > span.nolink, li.expanded.depth-2 > a').on('mouseenter', openMenuItem);
   })
 
-  // Initialize our global variable space.
-  Drupal.behaviors.rackspaceGlobal = {
-    'options': {
-      'animationDuration': 250, // How long animations last
-      'longTimeoutLength': 1000, // How long to wait to collapse depth-1 submenu
-      'shortTimeoutLength': 500, // How long to wait to collapse depth-2 submenu
-      'zIndexFront': 10,         // zIndex of Front Element
-      'zIndexBack': 1            // zIndex of Back Element
-    }
-  };
   var lastSearchEvent = '';
-  var mouseOverElement = [];
 
   // When someone clicks the search button, toggle the current state of the
   // search form.
@@ -62,7 +53,7 @@
 
   // When someone clicks a parent menu item on the navigation bar we should
   // expand sub-navigation.
-  var clickMenuItem = function (event) {
+  var openMenuItem = function (event) {
     // Find the parent <li class="expanded"> of the clicked item.
     var $li = $(this).closest('li.expanded');
 
@@ -86,7 +77,6 @@
 
     // When the mouse enters the parent <li>, mark the mouse over state.
     var parentEnter = function (event) {
-//      mouseOverElement[uniqueId] = true;
       $(this).data('mouseover', true);
     };
     $li.mouseenter(parentEnter);
@@ -96,7 +86,6 @@
     // - If we are hovering over it again, do nothing.
     // - Otherwise close our sub menu.
     var parentLeave = function (event) {
-//      mouseOverElement[uniqueId] = false;
       $li = $(this);
       $li.data('mouseover', false);
       var timeoutLength;

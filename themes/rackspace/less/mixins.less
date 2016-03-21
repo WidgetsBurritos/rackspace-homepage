@@ -87,16 +87,16 @@
 }
 
 // Sets the specified css to run at < 768px
-.respond-to-mobile(@css) {
+.respond-to-mobile(@rules) {
   @media screen and (max-width: (@responsive_break - 1)) {
-  @css();
+  @rules();
   }
 }
 
 // Sets the specified css to run at >= 768px
-.respond-to-desktop(@css) {
+.respond-to-desktop(@rules) {
   @media screen and (min-width: @responsive_break) {
-  @css();
+  @rules();
   }
 }
 

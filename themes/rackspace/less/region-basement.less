@@ -39,3 +39,95 @@
     top: 2px;
   }
 }
+
+/** Region Selector **/
+#regionSelect {
+  overflow: hidden;
+  margin-right: (@grid_gutter * 2);
+  ul {
+    .clean-ul();
+    margin-left: (@grid_gutter * 2);
+    li {
+      list-style-type: none;
+      list-style-image: none;
+      white-space: nowrap;
+      font-size: 1.3rem;
+      line-height: 1.1rem;
+      margin: 13px 0;
+      padding: 2px 0;
+      cursor: pointer;
+      &.country {
+        background-image: url(@img-flags);
+        background-repeat: no-repeat;
+        a {
+          color: @dark_gray3;
+          padding: 3px 0 3px 26px;
+        }
+      }
+    }
+  }
+
+  .unitedstates, .usa {
+    background-position: 0 0;
+  }
+  .argentina {
+    background-position: 0 -280px;
+  }
+  .brazil {
+    background-position: 0 -240px;
+  }
+  .chile {
+    background-position: 0 -300px;
+  }
+  .colombia {
+    background-position: 0 -220px;
+  }
+  .mexico {
+    background-position: 0 -260px;
+  }
+  .peru {
+    background-position: 0 -320px;
+  }
+  .venezuela {
+    background-position: 0 -340px;
+  }
+  .uk, .unitedkingdom {
+    background-position: 0 -20px;
+  }
+  .netherlands {
+    background-position: 0 -140px;
+  }
+  .germany {
+    background-position: 0 -100px;
+  }
+  .switzerland {
+    background-position: 0 -380px;
+  }
+  .austria {
+    background-position: 0 -360px;
+  }
+  .sa {
+    background-position: 0 -180px;
+  }
+  .uae {
+    background-position: 0 -200px;
+  }
+  .australia {
+    background-position: 0 -40px;
+  }
+  .hk, .hongkong {
+    background-position: 0 -120px;
+  }
+  .in, .india {
+    background-position: 0 -440px;
+  }
+  .sg, .singapore {
+    background-position: 0 -460px;
+  }
+  .ph, .philippines {
+    background-position: 0 -420px;
+  }
+  .china {
+    background-position: 0 -400px;
+  }
+}

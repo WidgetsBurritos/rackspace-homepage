@@ -79,9 +79,7 @@
  */
 ?>
 
-<!-- .navbar-fixed-top -->
 <nav class="navbar navbar-default navbar-fixed-top">
-  <!-- ceiling -->
   <div class="ceiling hidden-xs hidden-sm">
     <div class="container clearfix">
       <div class="row">
@@ -104,19 +102,16 @@
   </div>
   <!-- ./ceiling -->
 
-  <!-- .main-menu -->
   <div class="main-menu">
     <div class="container">
-      <!-- ./navbar-header -->
       <div class="navbar-header">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="<?php echo $base_path; ?>">
           <img alt="Rackspace - the #1 managed cloud company"
                src="https://752f77aa107738c25d93-f083e9a6295a3f0714fa019ffdca65c3.ssl.cf1.rackcdn.com/navigation/rackspace-logo-tagline-simplified.svg"/>
         </a>
       </div>
       <!-- ./navbar-header -->
 
-      <!-- .navbar-collapse -->
       <div class="collapse navbar-collapse" id="main-menu-nav">
         <?php
         print $primary_navigation;
@@ -135,37 +130,30 @@
     </div>
   </div>
   <!-- /.main-menu -->
-</nav>
-<!-- /.navbar-fixed-top -->
+</nav><!-- /.navbar-fixed-top -->
 
 
 <?php if (!empty($page['hero'])): ?>
-  <!-- .outer-region-hero -->
   <div class="outer-region-hero text-left">
     <?php print render($page['hero']); ?>
-  </div>
-  <!-- /.outer-region-hero -->
+  </div><!-- /.outer-region-hero -->
 <?php endif; ?>
 
 
 
 
 <?php if (!empty($page['content'])): ?>
-  <!-- .outer-region-content -->
   <div class="outer-region-content">
     <div class="container">
       <?php if (!empty($page['highlighted'])): ?>
-        <!-- .outer-region-highlighted -->
         <div class="outer-region-highlighted">
           <?php print render($page['highlighted']); ?>
-        </div>
-        <!-- /.outer-region-highlighted -->
+        </div><!-- /.outer-region-highlighted -->
       <?php endif; ?>
 
       <!-- Anchor here-->
       <a id="main-content"></a>
 
-      <!-- .drupal-help -->
       <?php print $messages; ?>
       <?php if (!empty($tabs)): ?>
         <?php print render($tabs); ?>
@@ -178,10 +166,20 @@
       <?php if (!empty($action_links)): ?>
         <ul class="action-links"><?php print render($action_links); ?></ul>
       <?php endif; ?>
-      <!-- /.drupal-help -->
+      <?php
+      // Non-page style nodes do not create their own bootstrap containers, so
+      // they should be nested inside the default container.
+      if ($page['#type'] != 'page') {
+        print render($page['content']);
+      } ?>
     </div>
 
-    <?php print render($page['content']); ?>
+    <?php
+    // Pages create their own containers, so they must be included outside of
+    // the <div class="container"> above.
+    if ($page['#type'] == 'page') {
+      print render($page['content']);
+    } ?>
   </div>
   <!-- /.outer-region-content -->
 
@@ -223,30 +221,3 @@
   <!-- /.outer-region-basement -->
 <?php endif; ?>
 
-
-
-
-<div id="live-chat">
-  <div class="tab"><?php echo t('Live Chat'); ?></div>
-  <div class="content text-left">
-    <div class="chat-window">
-      <div class="header"><?php echo t('Hello.'); ?></div>
-      <div class="line">&rsaquo; <?php echo t('Have questions?'); ?></div>
-      <div class="line">&rsaquo; <?php echo t('I\'m here to help.'); ?></div>
-    </div>
-    <div class="form row">
-      <div class="field col-xs-8">
-        <span class="red"><?php echo t('Click here'); ?></span>
-        <?php echo t('to chat'); ?>
-        <span class="blink">|</span>
-      </div>
-      <div class="btn btn-xs col-xs-3 col-xs-push-1">
-        <?php echo t('Send'); ?>
-      </div>
-    </div>
-    <div class="phone-number">
-      <?php echo t('Call us at'); ?> <a href="tel:tel:+18448585954"><?php echo ('1-844-858-5954'); ?></a>
-    </div>
-  </div>
-  <div class="no-thanks"><?php echo t('No thanks'); ?> <i class="fa fa-times"></i></div>
-</div>

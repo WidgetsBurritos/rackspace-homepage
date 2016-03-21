@@ -11,6 +11,16 @@
     $('form').on('submit', submitAllForms);
   })
 
+  // Initialize our global variable space.
+  Drupal.behaviors.rackspaceGlobal = {
+    'options': {
+      'animationDuration': 300, // How long animations last
+      'longTimeoutLength': 1000, // How long to wait to collapse depth-1 submenu
+      'shortTimeoutLength': 500, // How long to wait to collapse depth-2 submenu
+      'zIndexFront': 10,         // zIndex of Front Element
+      'zIndexBack': 1            // zIndex of Back Element
+    }
+  };
 
   // Determines whether or not a url starts with http:// or https://
   var isExternalLink = function (url) {

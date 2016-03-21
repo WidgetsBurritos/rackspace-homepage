@@ -6,6 +6,7 @@ nav.navbar-default {
   .ceiling {
     background: @white;
 
+    // Ceiling menu behavior.
     div > ul {
       .clean-ul();
 
@@ -27,8 +28,9 @@ nav.navbar-default {
           }
         }
       }
-      &.menu_tree__menu_ceiling_right {
 
+      // Ceiling Right customizations.
+      &.menu_tree__menu_ceiling_right {
         float: right;
         .btn {
           margin-left: 5px;
@@ -66,6 +68,8 @@ nav.navbar-default {
               }
             }
           }
+
+          // Green sub menu
           &.expanded-green {
             ul {
               background: @green;
@@ -74,6 +78,8 @@ nav.navbar-default {
               }
             }
           }
+
+          // Gray sub menu
           &.expanded-gray {
             ul {
               background: @medium_gray;
@@ -91,7 +97,7 @@ nav.navbar-default {
     }
   }
 
-  /** Main menu  **/
+  // Main Menu
   .main-menu {
     background: @black;
 
@@ -175,6 +181,8 @@ nav.navbar-default {
 
           }
         }
+
+        // Depth 2 links are in the first submenu.
         &.depth-2 {
           > ul.nav {
             background: @dark_gray5;
@@ -195,7 +203,8 @@ nav.navbar-default {
           }
         }
 
-        // Any leaves that have a span.nolink, should be all caps and slightly different shade of graygit .
+        // Any leaves that have a span.nolink, should be all caps and slightly
+        // different shade of gray.
         &.leaf {
           span.nolink {
             color: @light_gray2;
@@ -206,6 +215,7 @@ nav.navbar-default {
       }
     }
 
+    // Search region
     .navbar-form {
       margin-top: 13px;
       position: relative;

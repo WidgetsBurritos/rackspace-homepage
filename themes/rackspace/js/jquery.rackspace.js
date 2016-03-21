@@ -41,8 +41,8 @@
   $.fn.collapseByDepth = function (duration) {
     var $li = $(this).closest('li.expanded');
 
-    // li.depth-1 should slide up when it's done.
-    if ($li.hasClass('depth-1')) {
+    // Anything that is not depth-2 should slide down.
+    if (!$li.hasClass('depth-2')) {
       $(this).stop(true, true).slideUp({
         'duration' : duration,
         'progress' : progressOpacity
@@ -66,8 +66,8 @@
   $.fn.expandByDepth = function (duration) {
     var $li = $(this).closest('li.expanded');
 
-    // li.depth-1 should slide down when it opens
-    if ($li.hasClass('depth-1')) {
+    // Anything that is not depth-2 should slide down.
+    if (!$li.hasClass('depth-2')) {
       $(this).stop(true, true).slideDown({
         'duration' : duration,
         'progress' : progressOpacity
