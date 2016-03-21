@@ -93,12 +93,14 @@ strong {
   text-transform: uppercase;
 }
 input[type=text],
-input[type=email] {
+input[type=email],
+input[type=password] {
   padding: 3px 4px;
   font-size: 1.4rem;
   line-height: 2.0rem;
   border: 1px solid #bfbfbf;
   width: 100%;
+  max-width: 434px;
   color: #333333;
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;

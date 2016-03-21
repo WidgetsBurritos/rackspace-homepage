@@ -48,7 +48,7 @@
     return url.match(/^http[s]?\:\/\//);
   }
 
-  // Any http:// or https:// links should do nothing.
+  // Any http:// or https:// links should open in a new window.
   var clickAllLinks = function (event) {
     var href = $(this).attr('href');
     if (isExternalLink(href)) {
