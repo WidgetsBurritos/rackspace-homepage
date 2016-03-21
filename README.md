@@ -18,9 +18,9 @@ From a terminal window, navigate to a directory you wish to install this app int
   - Attempts to download VirtualBox/drush if missing
   - Downloads Drupal 7
   - Creates a unique Docker machine
-  - Sets docker environment variables
+  - Sets Docker environment variables
   - Starts the application containers
-  - Generates custom SSH keys for use with the ssh container & drush
+  - Generates custom ssh keys for use with the ssh container & drush
   - Generates Drush aliases for use with the application.
 
 From the previous step just type in the following commands:
@@ -39,7 +39,7 @@ If drush or virtualbox are missing from your system, you will be prompted to ins
 When asked for `root@192.168.99.100's password:` enter `toor`.
 
 
-### Step 3.) Opening the site in your browser.
+### Step 3.) Opening the Site in Your Browser
 
 The application can be accessed by going to `http://DOCKER_IP_ADDRESS:8910` in your browser, where `DOCKER_IP_ADDRESS` is the value of your Docker machine's IP address.
 
@@ -58,7 +58,7 @@ Bootstrap is normally used for 1200px grids out of the box, but [following the s
 
 All links to other pages on the website open in the www.rackspace.com counterpart in a new window, so you don't lose track of the Docker app.
 
-#### Modules used:
+#### Modules used
 - `block_class` - Used to apply css classes to a blocks.
 - `blockreference` - Used to reference blocks as fields in the content region field collection.
 - `captcha` - Used to add the captcha check on the form.
@@ -80,7 +80,7 @@ All links to other pages on the website open in the www.rackspace.com counterpar
 - `views` - Used to display various content types and taxonomy terms in a visually appealing manner.
 - `webform` - Used to create the contact form.
 
-#### Locations of App-Specific Resources:
+#### Locations of App-Specific Resources
 
 Since Docker builds Drupal from an image, our app-specific resources are located in the following locations relative to the application path:
 
@@ -104,18 +104,18 @@ Both regions contain menu blocks. Making use of the `menu_attributes` and `speci
 
 #### Navigation Bar Region
 
-The navigation bar consists of main navigation menu, and a few content blocks blocks for the search and mobile navigation icons.
+The navigation bar consists of main navigation menu, and a few content blocks for the search and mobile navigation icons.
 
 The navigation system was built based off the standard bootstrap navigation system, but modified to mimick the existing rackspace.com functionality as much as possible.
 
 #### Hero Region
 
-The hero region, utilizes a custom content type, called **Hero Content**, which allows a user to enter a background image and content.
-It is then rendered as a block via the **Hero Graphic** view, which is then padded with bootstrap wrappers via the `views-view--hero-graphic.tpl.php` template file located in the theme.
+The hero region, utilizes a custom content type, called *Hero Content*, which allows a user to enter a background image and content.
+It is then rendered as a block via the *Hero Graphic* view, which is then padded with bootstrap wrappers via the `views-view--hero-graphic.tpl.php` template file located in the theme.
 
 #### Content Region
 
-The content region is the combination of the Field Collection, Views, Blocks and Display Suite modules.
+The content region is a combination of the Field Collection, Views, Blocks and Display Suite modules.
 
 They are rendered via the `rackspace_preprocess_field_content_regions()` function in the theme's `template.php` file and via a special template: `field-collection-item--field-content-regions.tpl.php`
 
