@@ -40,7 +40,8 @@ initializeVariables() {
 
   # Docker Settings
   DOCKER="$APP_PATH/bin/docker"
-  DOCKER_URL="https://get.docker.com/builds/Darwin/x86_64/docker-latest"
+  DOCKER_TGZ="$APP_PATH/bin/docker.tgz"
+  DOCKER_URL="https://get.docker.com/builds/Darwin/x86_64/docker-latest.tgz"
   DOCKER_COMPOSE="$APP_PATH/bin/docker-compose"
   DOCKER_COMPOSE_URL="https://github.com/WidgetsBurritos/docker-compose-old-mac/raw/master/bin/docker-compose-Darwin-x86_64"
   DOCKER_MACHINE="$APP_PATH/bin/docker-machine"
@@ -163,8 +164,14 @@ installVirtualBox() {
 ##################################################################
 downloadDocker() {
   if [[ ! -f $DOCKER ]]; then
-    curl -L $DOCKER_URL > $DOCKER
+    curl -L $DOCKER_URL > $DOCKER_TGZ
+    pushd $APP_PATH/bin
+    tar -xzf $DOCKER_TGZ
+    mv docker docker_dir
+    mv docker_dir/docker docker
+    rm $DOCKER_TGZ
     chmod +x $DOCKER
+    popd
   fi
   if [[ ! -f $DOCKER_COMPOSE ]]; then
     curl -L $DOCKER_COMPOSE_URL > $DOCKER_COMPOSE
